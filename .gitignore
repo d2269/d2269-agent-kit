@@ -1,0 +1,40 @@
+# Local adapter destinations. Canonical skills live in /skills.
+.agents/skills/
+.claude/skills/
+.codex/skills/
+.cursor/skills/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+*.egg-info/
+
+# Secrets and local environment
+.env
+.env.*
+*.pem
+*.key
+*.p12
+credentials.json
+secrets.json
+
+# Editor and OS
+.DS_Store
+Thumbs.db
+*.swp
+*~
+*.drawio.bkp
+.idea/
+.vscode/
+
+.tmp/
+scripts/tests/.tmp/
+.coverage
+htmlcov/
+.tox/

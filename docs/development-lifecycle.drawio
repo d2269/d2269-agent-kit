@@ -1,0 +1,991 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2026-09-03T00:00:00.000Z" agent="D2269 Agent Kit" version="24.7.17" type="device" compressed="false">
+  <diagram id="overview" name="1 - Lifecycle Overview">
+    <mxGraphModel dx="1600" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1800" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="o-title" value="D2269 Development Lifecycle — Overview" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=22;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="900" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="o-sub" value="Standard and consequential delivery only; select a proportional execution profile first. Role states are semantic, and a controller or human performs authorized tracker transitions." style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=12;fontColor=#555555;" vertex="1" parent="1">
+          <mxGeometry x="40" y="65" width="1200" height="35" as="geometry"/>
+        </mxCell>
+        <mxCell id="o-human" value="Human&lt;br&gt;Objective · expected result&lt;br&gt;acceptance · constraints · authority" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#b58b00;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="50" y="150" width="220" height="95" as="geometry"/>
+        </mxCell>
+        <mxCell id="o-arch" value="Architect — DESIGN&lt;br&gt;Architecture baseline · ADRs&lt;br&gt;workstreams · evidence" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d9eaf7;strokeColor=#2878a5;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="320" y="150" width="230" height="95" as="geometry"/>
+        </mxCell>
+        <mxCell id="o-tl" value="Tech Lead — PLAN&lt;br&gt;Implementation Plan&lt;br&gt;child-ticket specifications" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e2f0d9;strokeColor=#548235;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="600" y="150" width="230" height="95" as="geometry"/>
+        </mxCell>
+        <mxCell id="o-dev" value="Developer&lt;br&gt;One READY ticket&lt;br&gt;COMPLETE · PARTIAL · BLOCKED" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fce4d6;strokeColor=#c55a11;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="880" y="150" width="230" height="95" as="geometry"/>
+        </mxCell>
+        <mxCell id="o-cr" value="Code Review&lt;br&gt;One ticket and exact revision&lt;br&gt;PASS · CHANGES_REQUESTED · BLOCKED" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e4dfec;strokeColor=#7030a0;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1160" y="150" width="250" height="95" as="geometry"/>
+        </mxCell>
+        <mxCell id="o-qa" value="QA&lt;br&gt;Same ticket and revision&lt;br&gt;PASS · CHANGES_REQUESTED · BLOCKED" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d9e1f2;strokeColor=#2f5597;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1460" y="150" width="250" height="95" as="geometry"/>
+        </mxCell>
+        <mxCell id="o-note" value="Every final Developer result and every Code Review or QA verdict requires a durable ticket-history comment before routing." style="shape=note;whiteSpace=wrap;html=1;fillColor=#fffbe6;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="880" y="285" width="830" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="o-done" value="Controller&lt;br&gt;Ticket → Done when QA&lt;br&gt;is the terminal policy gate" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eeeeee;strokeColor=#555555;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1460" y="410" width="250" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="o-more" value="All required scope&lt;br&gt;tickets complete?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#555555;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1160" y="400" width="210" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="o-next" value="Select next&lt;br&gt;READY ticket" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eeeeee;strokeColor=#555555;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="880" y="415" width="190" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="o-comp" value="Tech Lead&lt;br&gt;COMPLETENESS_REVIEW" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e2f0d9;strokeColor=#548235;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1160" y="590" width="210" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="o-cons" value="Consequential&lt;br&gt;scope?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#555555;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1460" y="580" width="200" height="95" as="geometry"/>
+        </mxCell>
+        <mxCell id="o-conf" value="Architect&lt;br&gt;CONFORMANCE_REVIEW" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d9eaf7;strokeColor=#2878a5;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1460" y="750" width="230" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="o-final" value="Human&lt;br&gt;Merge · release · follow-up&lt;br&gt;stop · defer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#b58b00;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1160" y="745" width="220" height="85" as="geometry"/>
+        </mxCell>
+        <mxCell id="o-end" value="Scope complete" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d1e7dd;strokeColor=#146c43;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1160" y="920" width="220" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="o-rw" value="Controller&lt;br&gt;Rework event +1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eeeeee;strokeColor=#555555;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="880" y="590" width="190" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="o-limit" value="Configured rework&lt;br&gt;limit reached?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#555555;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="630" y="575" width="190" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="o-br" value="Tech Lead&lt;br&gt;BLOCKER_REVIEW" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e2f0d9;strokeColor=#548235;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="370" y="590" width="190" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="o-hg" value="HUMAN_REVIEW_REQUIRED&lt;br&gt;Human selects the next&lt;br&gt;authorized action" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#b58b00;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="50" y="575" width="250" height="95" as="geometry"/>
+        </mxCell>
+        <mxCell id="o-stop" value="Stopped or deferred" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8d7da;strokeColor=#b02a37;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="50" y="780" width="250" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="overview-e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="o-human" target="o-arch">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="overview-e2" value="Accepted and ready" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="o-arch" target="o-tl">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="overview-e3" value="READY ticket" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="o-tl" target="o-dev">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="overview-e4" value="COMPLETE" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="o-dev" target="o-cr">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="overview-e5" value="PASS" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="o-cr" target="o-qa">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="overview-e6" value="PASS" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="o-qa" target="o-done">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="overview-e7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="o-done" target="o-more">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="overview-e8" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="o-more" target="o-next">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="overview-e9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="o-next" target="o-dev">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="overview-e10" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="o-more" target="o-comp">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="overview-e11" value="TECHNICALLY_COMPLETE" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="o-comp" target="o-cons">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="overview-e12" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="o-cons" target="o-final">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="overview-e13" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="o-cons" target="o-conf">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="overview-e14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="o-conf" target="o-final">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="overview-e15" value="MERGE or RELEASE" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="o-final" target="o-end">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="overview-e16" value="CHANGES_REQUESTED" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="o-cr" target="o-rw">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="overview-e17" value="CHANGES_REQUESTED" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="o-qa" target="o-rw">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="overview-e18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="o-rw" target="o-limit">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="overview-e19" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="o-limit" target="o-dev">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="overview-e20" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="o-limit" target="o-br">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="overview-e21" value="Material blocker" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;dashed=1;strokeColor=#777777;" edge="1" parent="1" source="o-dev" target="o-br">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="overview-e22" value="Technical BLOCKED" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;dashed=1;strokeColor=#777777;" edge="1" parent="1" source="o-cr" target="o-br">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="overview-e23" value="Technical BLOCKED" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;dashed=1;strokeColor=#777777;" edge="1" parent="1" source="o-qa" target="o-br">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="overview-e24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="o-br" target="o-hg">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="overview-e25" value="RESUME" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="o-hg" target="o-dev">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="overview-e26" value="REPLAN" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="o-hg" target="o-tl">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="overview-e27" value="ARCHITECT_REVIEW" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="o-hg" target="o-arch">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="overview-e28" value="STOP" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="o-hg" target="o-stop">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="arch-plan" name="2 - Architecture and Planning">
+    <mxGraphModel dx="1600" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1800" pageHeight="1250" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="ap-title" value="Architecture and Planning" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=22;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="700" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="ap-scope" value="Human&lt;br&gt;Defines objective, expected outcome,&lt;br&gt;acceptance criteria, constraints, authority" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#b58b00;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="60" y="130" width="250" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="ap-design" value="Architect — DESIGN&lt;br&gt;Baseline · boundaries · ADRs&lt;br&gt;workstreams · migration · evidence" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d9eaf7;strokeColor=#2878a5;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="390" y="130" width="250" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="ap-adr" value="Architecture&lt;br&gt;decision status" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#555555;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="730" y="120" width="200" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="ap-prop" value="PROPOSED&lt;br&gt;Not binding" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d9eaf7;strokeColor=#2878a5;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="90" width="190" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="ap-acc" value="ACCEPTED&lt;br&gt;Binding" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d1e7dd;strokeColor=#146c43;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="190" width="190" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="ap-rej" value="REJECTED&lt;br&gt;Explicitly declined" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8d7da;strokeColor=#b02a37;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1020" y="290" width="190" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="ap-auth" value="Delegated Architect&lt;br&gt;decision authority?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#555555;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1300" y="75" width="210" height="95" as="geometry"/>
+        </mxCell>
+        <mxCell id="ap-hdec" value="Human decision owner&lt;br&gt;ACCEPT · REJECT · REVISE" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#b58b00;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1300" y="210" width="230" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="ap-ready" value="Architecture handoff&lt;br&gt;implementation-ready?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#555555;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1300" y="365" width="220" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="ap-plan" value="Tech Lead — PLAN&lt;br&gt;Implementation Plan and&lt;br&gt;one spec per child ticket" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e2f0d9;strokeColor=#548235;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="980" y="510" width="240" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="ap-pstat" value="Implementation Plan&lt;br&gt;status" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#555555;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="680" y="500" width="210" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="ap-draft" value="DRAFT&lt;br&gt;Useful, not ready" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e2f0d9;strokeColor=#548235;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="370" y="440" width="190" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="ap-block" value="BLOCKED&lt;br&gt;Cannot decompose responsibly" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8d7da;strokeColor=#b02a37;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="370" y="540" width="210" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="ap-pready" value="READY_FOR_IMPLEMENTATION" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d1e7dd;strokeColor=#146c43;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="370" y="640" width="230" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="ap-resolve" value="Resolve product, scope,&lt;br&gt;architecture, or planning prerequisite" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#b58b00;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="60" y="470" width="240" height="85" as="geometry"/>
+        </mxCell>
+        <mxCell id="ap-pubq" value="Publication requested&lt;br&gt;and authorized?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#555555;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="690" y="700" width="210" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="ap-notreq" value="NOT_REQUESTED" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eeeeee;strokeColor=#555555;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="390" y="745" width="190" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="ap-publish" value="Authorized connector publication" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e2f0d9;strokeColor=#548235;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="980" y="710" width="240" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="ap-pubstat" value="Publication status" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#555555;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1300" y="700" width="210" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="ap-sync" value="SYNCED" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d1e7dd;strokeColor=#146c43;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1550" y="620" width="180" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="ap-part" value="PARTIAL" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8d7da;strokeColor=#b02a37;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1550" y="710" width="180" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="ap-out" value="OUT_OF_SYNC" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8d7da;strokeColor=#b02a37;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1550" y="800" width="180" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="ap-pubblock" value="BLOCKED" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8d7da;strokeColor=#b02a37;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1550" y="890" width="180" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="ap-fixpub" value="Resolve authority, connector,&lt;br&gt;mapping, or validation failure" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eeeeee;strokeColor=#555555;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1240" y="900" width="240" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="ap-tstat" value="Child-ticket&lt;br&gt;implementation readiness" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#555555;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="690" y="900" width="210" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="ap-tready" value="READY&lt;br&gt;May invoke Developer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d1e7dd;strokeColor=#146c43;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="390" y="920" width="190" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="ap-tblock" value="BLOCKED&lt;br&gt;Do not invoke Developer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8d7da;strokeColor=#b02a37;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="390" y="1030" width="210" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="ap-note" value="Architecture decision lifecycle also includes IMPLEMENTED after verified conformance and SUPERSEDED only after an accepted replacement exists." style="shape=note;whiteSpace=wrap;html=1;fillColor=#fffbe6;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="1110" width="760" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="arch-plan-e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="ap-scope" target="ap-design">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="arch-plan-e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="ap-design" target="ap-adr">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="arch-plan-e3" value="PROPOSED" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="ap-adr" target="ap-prop">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="arch-plan-e4" value="ACCEPTED" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="ap-adr" target="ap-acc">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="arch-plan-e5" value="REJECTED" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="ap-adr" target="ap-rej">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="arch-plan-e6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="ap-prop" target="ap-auth">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="arch-plan-e7" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="ap-auth" target="ap-acc">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="arch-plan-e8" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="ap-auth" target="ap-hdec">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="arch-plan-e9" value="ACCEPT" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="ap-hdec" target="ap-acc">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="arch-plan-e10" value="REJECT" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="ap-hdec" target="ap-rej">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="arch-plan-e11" value="REVISE" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="ap-hdec" target="ap-design">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="arch-plan-e12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="ap-rej" target="ap-scope">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="arch-plan-e13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="ap-acc" target="ap-ready">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="arch-plan-e14" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="ap-ready" target="ap-hdec">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="arch-plan-e15" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="ap-ready" target="ap-plan">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="arch-plan-e16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="ap-plan" target="ap-pstat">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="arch-plan-e17" value="DRAFT" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="ap-pstat" target="ap-draft">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="arch-plan-e18" value="BLOCKED" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="ap-pstat" target="ap-block">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="arch-plan-e19" value="READY_FOR_IMPLEMENTATION" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="ap-pstat" target="ap-pready">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="arch-plan-e20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="ap-draft" target="ap-resolve">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="arch-plan-e21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="ap-block" target="ap-resolve">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="arch-plan-e22" value="Architecture" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="ap-resolve" target="ap-design">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="arch-plan-e23" value="Product or plan" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="ap-resolve" target="ap-plan">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="arch-plan-e24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="ap-pready" target="ap-pubq">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="arch-plan-e25" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="ap-pubq" target="ap-notreq">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="arch-plan-e26" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="ap-pubq" target="ap-publish">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="arch-plan-e27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="ap-publish" target="ap-pubstat">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="arch-plan-e28" value="SYNCED" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="ap-pubstat" target="ap-sync">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="arch-plan-e29" value="PARTIAL" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="ap-pubstat" target="ap-part">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="arch-plan-e30" value="OUT_OF_SYNC" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="ap-pubstat" target="ap-out">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="arch-plan-e31" value="BLOCKED" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="ap-pubstat" target="ap-pubblock">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="arch-plan-e32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="ap-part" target="ap-fixpub">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="arch-plan-e33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="ap-out" target="ap-fixpub">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="arch-plan-e34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="ap-pubblock" target="ap-fixpub">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="arch-plan-e35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="ap-fixpub" target="ap-publish">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="arch-plan-e36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="ap-notreq" target="ap-tstat">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="arch-plan-e37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="ap-sync" target="ap-tstat">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="arch-plan-e38" value="READY" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="ap-tstat" target="ap-tready">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="arch-plan-e39" value="BLOCKED" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="ap-tstat" target="ap-tblock">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="arch-plan-e40" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="ap-tblock" target="ap-plan">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="ticket" name="3 - Per-Ticket Delivery">
+    <mxGraphModel dx="1600" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2000" pageHeight="1450" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="t-title" value="Per-Ticket Delivery: Developer → Code Review → QA" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=22;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="900" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="t-ready" value="One current READY&lt;br&gt;Developer ticket" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d1e7dd;strokeColor=#146c43;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="60" y="130" width="210" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="t-dgate" value="Developer&lt;br&gt;start gate satisfied?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#555555;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="350" y="115" width="200" height="105" as="geometry"/>
+        </mxCell>
+        <mxCell id="t-dev" value="Developer&lt;br&gt;Implement · test · update&lt;br&gt;directly affected docs" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fce4d6;strokeColor=#c55a11;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="630" y="130" width="220" height="85" as="geometry"/>
+        </mxCell>
+        <mxCell id="t-dresult" value="Developer result" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#555555;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="940" y="115" width="190" height="105" as="geometry"/>
+        </mxCell>
+        <mxCell id="t-dcomplete" value="COMPLETE" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d1e7dd;strokeColor=#146c43;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1220" y="70" width="180" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="t-dpartial" value="PARTIAL" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8d7da;strokeColor=#b02a37;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1220" y="150" width="180" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="t-dblocked" value="BLOCKED" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8d7da;strokeColor=#b02a37;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1220" y="230" width="180" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="t-dcomment" value="Required Developer comment&lt;br&gt;completed · verified · incomplete&lt;br&gt;unverified · blocker · next action" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fce4d6;strokeColor=#c55a11;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1490" y="115" width="260" height="105" as="geometry"/>
+        </mxCell>
+        <mxCell id="t-dpub" value="Comment durable?&lt;br&gt;POSTED or publish READY_TO_POST" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eeeeee;strokeColor=#555555;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1790" y="115" width="180" height="105" as="geometry"/>
+        </mxCell>
+        <mxCell id="t-crgate" value="Code Review start gate&lt;br&gt;COMPLETE · exact revision&lt;br&gt;durable comment · independence" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e4dfec;strokeColor=#7030a0;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1490" y="360" width="260" height="105" as="geometry"/>
+        </mxCell>
+        <mxCell id="t-cr" value="Code Review&lt;br&gt;Correctness · regression risk&lt;br&gt;maintainability · verification" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e4dfec;strokeColor=#7030a0;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1160" y="370" width="240" height="85" as="geometry"/>
+        </mxCell>
+        <mxCell id="t-crv" value="Code Review verdict" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#555555;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="860" y="355" width="210" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="t-crpass" value="PASS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d1e7dd;strokeColor=#146c43;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="580" y="300" width="180" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="t-crchange" value="CHANGES_REQUESTED&lt;br&gt;MUST_FIX exists" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8d7da;strokeColor=#b02a37;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="560" y="390" width="220" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="t-crblock" value="BLOCKED&lt;br&gt;Reliable review impossible" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8d7da;strokeColor=#b02a37;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="560" y="490" width="220" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="t-crcomment" value="Required Code Review comment&lt;br&gt;target · findings · limits&lt;br&gt;blocker · next action" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e4dfec;strokeColor=#7030a0;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="260" y="370" width="230" height="95" as="geometry"/>
+        </mxCell>
+        <mxCell id="t-crpub" value="Comment durable?&lt;br&gt;POSTED or publish READY_TO_POST" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eeeeee;strokeColor=#555555;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="40" y="370" width="180" height="95" as="geometry"/>
+        </mxCell>
+        <mxCell id="t-qgate" value="QA start gate&lt;br&gt;Developer COMPLETE and matching&lt;br&gt;Code Review PASS or valid waiver" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d9e1f2;strokeColor=#2f5597;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="260" y="660" width="240" height="105" as="geometry"/>
+        </mxCell>
+        <mxCell id="t-qa" value="QA&lt;br&gt;Acceptance criteria and&lt;br&gt;observable behavior" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d9e1f2;strokeColor=#2f5597;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="580" y="675" width="220" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="t-matrix" value="Criterion states&lt;br&gt;PASS · FAIL&lt;br&gt;NOT_VERIFIED · NOT_APPLICABLE" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d9e1f2;strokeColor=#2f5597;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="880" y="660" width="230" height="105" as="geometry"/>
+        </mxCell>
+        <mxCell id="t-qv" value="QA verdict" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#555555;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="655" width="190" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="t-qpass" value="PASS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d1e7dd;strokeColor=#146c43;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1480" y="600" width="180" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="t-qchange" value="CHANGES_REQUESTED&lt;br&gt;FAIL or MUST_FIX" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8d7da;strokeColor=#b02a37;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1460" y="690" width="220" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="t-qblock" value="BLOCKED&lt;br&gt;Required NOT_VERIFIED&lt;br&gt;takes precedence" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8d7da;strokeColor=#b02a37;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1460" y="790" width="220" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="t-qcomment" value="Required QA comment&lt;br&gt;passed · failed · unverified&lt;br&gt;evidence · blocker · next action" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d9e1f2;strokeColor=#2f5597;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1750" y="655" width="230" height="105" as="geometry"/>
+        </mxCell>
+        <mxCell id="t-qpub" value="Comment durable?&lt;br&gt;POSTED or publish READY_TO_POST" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eeeeee;strokeColor=#555555;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1750" y="820" width="230" height="85" as="geometry"/>
+        </mxCell>
+        <mxCell id="t-done" value="Controller&lt;br&gt;Ticket → Done if QA&lt;br&gt;is the terminal gate" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eeeeee;strokeColor=#555555;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1460" y="1010" width="230" height="85" as="geometry"/>
+        </mxCell>
+        <mxCell id="t-rw" value="Controller&lt;br&gt;Rework event +1 for current&lt;br&gt;ticket-contract revision" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eeeeee;strokeColor=#555555;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="900" y="1010" width="240" height="85" as="geometry"/>
+        </mxCell>
+        <mxCell id="t-limit" value="Configured rework&lt;br&gt;limit reached?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#555555;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="610" y="995" width="200" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="t-back" value="Return to Developer&lt;br&gt;with durable findings" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fce4d6;strokeColor=#c55a11;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="300" y="1015" width="220" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="t-br" value="Tech Lead&lt;br&gt;BLOCKER_REVIEW" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e2f0d9;strokeColor=#548235;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="610" y="1190" width="200" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="t-oper" value="Named owner or human&lt;br&gt;resolves access, environment,&lt;br&gt;authority, or policy blocker" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#b58b00;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="1180" width="250" height="95" as="geometry"/>
+        </mxCell>
+        <mxCell id="t-note" value="Developer, Code Review, and QA never mutate tracker workflow state. PARTIAL or BLOCKED work never enters a later gate as ready." style="shape=note;whiteSpace=wrap;html=1;fillColor=#fffbe6;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="1320" width="1100" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="ticket-e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="t-ready" target="t-dgate">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ticket-e2" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="t-dgate" target="t-dev">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ticket-e3" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="t-dgate" target="t-dblocked">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ticket-e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="t-dev" target="t-dresult">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ticket-e5" value="COMPLETE" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="t-dresult" target="t-dcomplete">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ticket-e6" value="PARTIAL" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="t-dresult" target="t-dpartial">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ticket-e7" value="BLOCKED" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="t-dresult" target="t-dblocked">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ticket-e8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="t-dcomplete" target="t-dcomment">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ticket-e9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="t-dpartial" target="t-dcomment">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ticket-e10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="t-dblocked" target="t-dcomment">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ticket-e11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="t-dcomment" target="t-dpub">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ticket-e12" value="COMPLETE" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="t-dpub" target="t-crgate">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ticket-e13" value="Technical PARTIAL or BLOCKED" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;dashed=1;strokeColor=#777777;" edge="1" parent="1" source="t-dpub" target="t-br">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ticket-e14" value="Operational blocker" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;dashed=1;strokeColor=#777777;" edge="1" parent="1" source="t-dpub" target="t-oper">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ticket-e15" value="Eligible" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="t-crgate" target="t-cr">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ticket-e16" value="Not eligible" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="t-crgate" target="t-crblock">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ticket-e17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="t-cr" target="t-crv">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ticket-e18" value="PASS" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="t-crv" target="t-crpass">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ticket-e19" value="CHANGES_REQUESTED" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="t-crv" target="t-crchange">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ticket-e20" value="BLOCKED" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="t-crv" target="t-crblock">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ticket-e21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="t-crpass" target="t-crcomment">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ticket-e22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="t-crchange" target="t-crcomment">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ticket-e23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="t-crblock" target="t-crcomment">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ticket-e24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="t-crcomment" target="t-crpub">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ticket-e25" value="PASS" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="t-crpub" target="t-qgate">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ticket-e26" value="CHANGES_REQUESTED" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="t-crpub" target="t-rw">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ticket-e27" value="Technical BLOCKED" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;dashed=1;strokeColor=#777777;" edge="1" parent="1" source="t-crpub" target="t-br">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ticket-e28" value="Operational BLOCKED" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;dashed=1;strokeColor=#777777;" edge="1" parent="1" source="t-crpub" target="t-oper">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ticket-e29" value="Eligible" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="t-qgate" target="t-qa">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ticket-e30" value="Not eligible" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="t-qgate" target="t-qblock">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ticket-e31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="t-qa" target="t-matrix">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ticket-e32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="t-matrix" target="t-qv">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ticket-e33" value="PASS" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="t-qv" target="t-qpass">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ticket-e34" value="CHANGES_REQUESTED" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="t-qv" target="t-qchange">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ticket-e35" value="BLOCKED" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="t-qv" target="t-qblock">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ticket-e36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="t-qpass" target="t-qcomment">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ticket-e37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="t-qchange" target="t-qcomment">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ticket-e38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="t-qblock" target="t-qcomment">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ticket-e39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="t-qcomment" target="t-qpub">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ticket-e40" value="PASS" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="t-qpub" target="t-done">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ticket-e41" value="CHANGES_REQUESTED" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="t-qpub" target="t-rw">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ticket-e42" value="Technical BLOCKED" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;dashed=1;strokeColor=#777777;" edge="1" parent="1" source="t-qpub" target="t-br">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ticket-e43" value="Operational BLOCKED" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;dashed=1;strokeColor=#777777;" edge="1" parent="1" source="t-qpub" target="t-oper">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ticket-e44" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="t-rw" target="t-limit">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ticket-e45" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="t-limit" target="t-back">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ticket-e46" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="t-back" target="t-dgate">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ticket-e47" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="t-limit" target="t-br">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="blocker" name="4 - Blocker and Human Gate">
+    <mxGraphModel dx="1600" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1900" pageHeight="1350" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="b-title" value="Blocker Review and Mandatory Human Decision" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=22;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="900" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="b-input" value="Current ticket contract&lt;br&gt;Developer, Code Review, and QA comments&lt;br&gt;attempts · tests · logs · current revision" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eeeeee;strokeColor=#555555;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="60" y="130" width="300" height="105" as="geometry"/>
+        </mxCell>
+        <mxCell id="b-trigger" value="Trigger&lt;br&gt;Material blocker or configured&lt;br&gt;rework limit reached" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eeeeee;strokeColor=#555555;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="60" y="300" width="300" height="85" as="geometry"/>
+        </mxCell>
+        <mxCell id="b-review" value="Tech Lead — BLOCKER_REVIEW&lt;br&gt;Inspect evidence and preserved work&lt;br&gt;Count is a trigger, not a diagnosis" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e2f0d9;strokeColor=#548235;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="450" y="200" width="300" height="105" as="geometry"/>
+        </mxCell>
+        <mxCell id="b-class" value="Primary classification" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#555555;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="840" y="195" width="220" height="115" as="geometry"/>
+        </mxCell>
+        <mxCell id="b-impl" value="IMPLEMENTATION_DEFECT" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e2f0d9;strokeColor=#548235;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1170" y="80" width="250" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="b-plan" value="PLAN_GAP" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e2f0d9;strokeColor=#548235;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1170" y="170" width="250" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="b-arch" value="SUSPECTED_ARCHITECTURE_ISSUE" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e2f0d9;strokeColor=#548235;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1170" y="260" width="250" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="b-req" value="REQUIREMENTS_GAP" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e2f0d9;strokeColor=#548235;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1170" y="355" width="250" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="b-evid" value="INSUFFICIENT_EVIDENCE" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e2f0d9;strokeColor=#548235;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1170" y="445" width="250" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="b-package" value="HUMAN_REVIEW_REQUIRED&lt;br&gt;Classification · evidence · retained work&lt;br&gt;proposal · alternatives · scope impact&lt;br&gt;recommended role · exact decision" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#b58b00;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1510" y="205" width="300" height="145" as="geometry"/>
+        </mxCell>
+        <mxCell id="b-human" value="Human decision" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#555555;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1510" y="470" width="230" height="115" as="geometry"/>
+        </mxCell>
+        <mxCell id="b-resume" value="RESUME&lt;br&gt;Continue current ticket" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fce4d6;strokeColor=#c55a11;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1160" y="620" width="240" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="b-replan" value="REPLAN&lt;br&gt;Revise ticket, decomposition,&lt;br&gt;or add project work" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e2f0d9;strokeColor=#548235;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1160" y="730" width="240" height="85" as="geometry"/>
+        </mxCell>
+        <mxCell id="b-audit" value="ARCHITECT_REVIEW&lt;br&gt;Invoke ESCALATION_REVIEW" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d9eaf7;strokeColor=#2878a5;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1160" y="860" width="240" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="b-invest" value="INVESTIGATE&lt;br&gt;Obtain bounded evidence" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eeeeee;strokeColor=#555555;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1160" y="980" width="240" height="70" as="geometry"/>
+        </mxCell>
+        <mxCell id="b-stop" value="STOP&lt;br&gt;Cancel or defer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8d7da;strokeColor=#b02a37;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1160" y="1100" width="240" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="b-aesc" value="Architect — ESCALATION_REVIEW&lt;br&gt;Test the architecture hypothesis" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d9eaf7;strokeColor=#2878a5;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="770" y="850" width="280" height="85" as="geometry"/>
+        </mxCell>
+        <mxCell id="b-aclass" value="Architect classification" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#555555;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="460" y="840" width="220" height="105" as="geometry"/>
+        </mxCell>
+        <mxCell id="b-design" value="DESIGN_ISSUE" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d9eaf7;strokeColor=#2878a5;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="70" y="650" width="240" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="b-iissue" value="IMPLEMENTATION_ISSUE" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d9eaf7;strokeColor=#2878a5;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="70" y="750" width="240" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="b-rgap" value="REQUIREMENTS_GAP" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d9eaf7;strokeColor=#2878a5;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="70" y="850" width="240" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="b-noe" value="INSUFFICIENT_EVIDENCE" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d9eaf7;strokeColor=#2878a5;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="70" y="950" width="240" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="b-newadr" value="Replacement ADR: PROPOSED&lt;br&gt;Existing ACCEPTED ADR remains active" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d9eaf7;strokeColor=#2878a5;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="400" y="1050" width="280" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="b-adec" value="Human or delegated&lt;br&gt;decision owner" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#b58b00;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="770" y="1040" width="220" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="b-super" value="Old ADR: SUPERSEDED&lt;br&gt;Replacement ADR: ACCEPTED" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d1e7dd;strokeColor=#146c43;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="770" y="1190" width="250" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="b-note" value="Tech Lead never resumes work, publishes a blocker-driven plan revision, invokes Architect, or requests a tracker transition before the human decision is recorded." style="shape=note;whiteSpace=wrap;html=1;fillColor=#fffbe6;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1450" y="690" width="370" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="blocker-e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="b-input" target="b-review">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="blocker-e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="b-trigger" target="b-review">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="blocker-e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="b-review" target="b-class">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="blocker-e4" value="IMPLEMENTATION_DEFECT" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="b-class" target="b-impl">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="blocker-e5" value="PLAN_GAP" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="b-class" target="b-plan">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="blocker-e6" value="SUSPECTED_ARCHITECTURE_ISSUE" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="b-class" target="b-arch">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="blocker-e7" value="REQUIREMENTS_GAP" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="b-class" target="b-req">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="blocker-e8" value="INSUFFICIENT_EVIDENCE" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="b-class" target="b-evid">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="blocker-e9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="b-impl" target="b-package">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="blocker-e10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="b-plan" target="b-package">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="blocker-e11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="b-arch" target="b-package">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="blocker-e12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="b-req" target="b-package">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="blocker-e13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="b-evid" target="b-package">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="blocker-e14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="b-package" target="b-human">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="blocker-e15" value="RESUME" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="b-human" target="b-resume">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="blocker-e16" value="REPLAN" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="b-human" target="b-replan">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="blocker-e17" value="ARCHITECT_REVIEW" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="b-human" target="b-audit">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="blocker-e18" value="INVESTIGATE" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="b-human" target="b-invest">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="blocker-e19" value="STOP" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="b-human" target="b-stop">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="blocker-e20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="b-audit" target="b-aesc">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="blocker-e21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="b-aesc" target="b-aclass">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="blocker-e22" value="DESIGN_ISSUE" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="b-aclass" target="b-design">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="blocker-e23" value="IMPLEMENTATION_ISSUE" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="b-aclass" target="b-iissue">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="blocker-e24" value="REQUIREMENTS_GAP" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="b-aclass" target="b-rgap">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="blocker-e25" value="INSUFFICIENT_EVIDENCE" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="b-aclass" target="b-noe">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="blocker-e26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="b-design" target="b-newadr">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="blocker-e27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="b-newadr" target="b-adec">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="blocker-e28" value="ACCEPT" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="b-adec" target="b-super">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="blocker-e29" value="REVISE" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="b-adec" target="b-aesc">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="blocker-e30" value="REJECT" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="b-adec" target="b-stop">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="blocker-e31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="b-iissue" target="b-human">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="blocker-e32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="b-rgap" target="b-human">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="blocker-e33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="b-noe" target="b-invest">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="blocker-e34" value="Evidence supplied" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="b-invest" target="b-review">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="blocker-e35" value="Update plan and tickets" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="b-super" target="b-replan">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="completion" name="5 - Scope Completion and Statuses">
+    <mxGraphModel dx="1600" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1900" pageHeight="1450" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="c-title" value="Scope Completion and Status Catalog" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=22;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="900" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="c-all" value="All required tickets have&lt;br&gt;durable QA PASS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d1e7dd;strokeColor=#146c43;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="60" y="130" width="240" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="c-tl" value="Tech Lead&lt;br&gt;COMPLETENESS_REVIEW" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e2f0d9;strokeColor=#548235;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="390" y="130" width="240" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="c-tv" value="Technical verdict" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#555555;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="720" y="115" width="210" height="105" as="geometry"/>
+        </mxCell>
+        <mxCell id="c-ok" value="TECHNICALLY_COMPLETE" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d1e7dd;strokeColor=#146c43;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1030" y="70" width="250" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="c-ch" value="CHANGES_REQUIRED" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8d7da;strokeColor=#b02a37;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1030" y="160" width="250" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="c-nv" value="NOT_VERIFIABLE" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8d7da;strokeColor=#b02a37;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1030" y="250" width="250" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="c-fix" value="Implementation → Developer&lt;br&gt;Plan → Tech Lead PLAN&lt;br&gt;Review evidence → Code Review or QA" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eeeeee;strokeColor=#555555;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1370" y="135" width="300" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="c-evidence" value="Obtain missing bounded evidence" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eeeeee;strokeColor=#555555;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1370" y="270" width="300" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="c-cons" value="Consequential scope?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#555555;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1030" y="400" width="220" height="105" as="geometry"/>
+        </mxCell>
+        <mxCell id="c-conf" value="Architect&lt;br&gt;CONFORMANCE_REVIEW" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d9eaf7;strokeColor=#2878a5;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="710" y="415" width="240" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="c-cv" value="Conformance verdict" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#555555;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="390" y="400" width="220" height="105" as="geometry"/>
+        </mxCell>
+        <mxCell id="c-align" value="ALIGNED" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d1e7dd;strokeColor=#146c43;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="60" y="350" width="230" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="c-dev" value="ALIGNED_WITH_DEVIATIONS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d9eaf7;strokeColor=#2878a5;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="60" y="435" width="230" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="c-na" value="NOT_ALIGNED" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8d7da;strokeColor=#b02a37;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="60" y="530" width="230" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="c-cnv" value="NOT_VERIFIABLE" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8d7da;strokeColor=#b02a37;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="60" y="615" width="230" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="c-impl" value="Verified accepted ADRs → IMPLEMENTED&lt;br&gt;Durable architecture close-out" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d9eaf7;strokeColor=#2878a5;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="390" y="590" width="300" height="80" as="geometry"/>
+        </mxCell>
+        <mxCell id="c-human" value="Human&lt;br&gt;Merge · release · follow-up&lt;br&gt;remediation · stop · defer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#b58b00;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="800" y="590" width="260" height="90" as="geometry"/>
+        </mxCell>
+        <mxCell id="c-end" value="Scope complete" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d1e7dd;strokeColor=#146c43;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1160" y="605" width="230" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="c-follow" value="Follow-up scope or remediation plan" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e2f0d9;strokeColor=#548235;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="800" y="750" width="290" height="65" as="geometry"/>
+        </mxCell>
+        <mxCell id="c-stop" value="Stopped or deferred" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8d7da;strokeColor=#b02a37;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1160" y="750" width="230" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="c-s1" value="Architect decisions&lt;br&gt;PROPOSED&lt;br&gt;ACCEPTED&lt;br&gt;IMPLEMENTED&lt;br&gt;SUPERSEDED&lt;br&gt;REJECTED" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d9eaf7;strokeColor=#2878a5;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="60" y="900" width="260" height="180" as="geometry"/>
+        </mxCell>
+        <mxCell id="c-s2" value="Tech Lead&lt;br&gt;Plan: DRAFT · BLOCKED · READY_FOR_IMPLEMENTATION&lt;br&gt;Blocker: IMPLEMENTATION_DEFECT · PLAN_GAP · SUSPECTED_ARCHITECTURE_ISSUE · REQUIREMENTS_GAP · INSUFFICIENT_EVIDENCE&lt;br&gt;Outcome: HUMAN_REVIEW_REQUIRED" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e2f0d9;strokeColor=#548235;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="360" y="900" width="430" height="220" as="geometry"/>
+        </mxCell>
+        <mxCell id="c-s3" value="Developer&lt;br&gt;COMPLETE&lt;br&gt;PARTIAL&lt;br&gt;BLOCKED&lt;br&gt;&lt;br&gt;Ticket readiness&lt;br&gt;READY · BLOCKED" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fce4d6;strokeColor=#c55a11;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="830" y="900" width="260" height="180" as="geometry"/>
+        </mxCell>
+        <mxCell id="c-s4" value="Code Review&lt;br&gt;PASS&lt;br&gt;CHANGES_REQUESTED&lt;br&gt;BLOCKED&lt;br&gt;&lt;br&gt;Comment publication&lt;br&gt;POSTED · READY_TO_POST" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e4dfec;strokeColor=#7030a0;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1130" y="900" width="290" height="190" as="geometry"/>
+        </mxCell>
+        <mxCell id="c-s5" value="QA criteria&lt;br&gt;PASS · FAIL&lt;br&gt;NOT_VERIFIED · NOT_APPLICABLE&lt;br&gt;&lt;br&gt;QA verdict&lt;br&gt;PASS · CHANGES_REQUESTED · BLOCKED" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d9e1f2;strokeColor=#2f5597;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1460" y="900" width="330" height="190" as="geometry"/>
+        </mxCell>
+        <mxCell id="c-s6" value="Tracker publication&lt;br&gt;NOT_REQUESTED · SYNCED · PARTIAL&lt;br&gt;OUT_OF_SYNC · BLOCKED" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eeeeee;strokeColor=#555555;strokeWidth=2;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="830" y="1160" width="330" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="c-note" value="IMPLEMENTED is established by conformance evidence, never by tracker status or ticket completion alone." style="shape=note;whiteSpace=wrap;html=1;fillColor=#fffbe6;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="1210" width="650" height="75" as="geometry"/>
+        </mxCell>
+        <mxCell id="completion-e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="c-all" target="c-tl">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="completion-e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="c-tl" target="c-tv">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="completion-e3" value="TECHNICALLY_COMPLETE" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="c-tv" target="c-ok">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="completion-e4" value="CHANGES_REQUIRED" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="c-tv" target="c-ch">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="completion-e5" value="NOT_VERIFIABLE" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="c-tv" target="c-nv">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="completion-e6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="c-ch" target="c-fix">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="completion-e7" value="After correction" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="c-fix" target="c-tl">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="completion-e8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="c-nv" target="c-evidence">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="completion-e9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="c-evidence" target="c-tl">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="completion-e10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="c-ok" target="c-cons">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="completion-e11" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="c-cons" target="c-human">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="completion-e12" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="c-cons" target="c-conf">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="completion-e13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="c-conf" target="c-cv">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="completion-e14" value="ALIGNED" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="c-cv" target="c-align">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="completion-e15" value="ALIGNED_WITH_DEVIATIONS" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="c-cv" target="c-dev">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="completion-e16" value="NOT_ALIGNED" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="c-cv" target="c-na">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="completion-e17" value="NOT_VERIFIABLE" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="c-cv" target="c-cnv">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="completion-e18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="c-align" target="c-impl">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="completion-e19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="c-impl" target="c-human">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="completion-e20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="c-dev" target="c-human">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="completion-e21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="c-na" target="c-human">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="completion-e22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="c-cnv" target="c-evidence">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="completion-e23" value="MERGE or RELEASE" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="c-human" target="c-end">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="completion-e24" value="FOLLOW_UP" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="c-human" target="c-follow">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="completion-e25" value="STOP" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="c-human" target="c-stop">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="completion-e26" value="New plan" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;" edge="1" parent="1" source="c-follow" target="c-tl">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
