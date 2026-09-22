@@ -1,0 +1,4 @@
+interface:
+  display_name: "D2269 Developer"
+  short_description: "Implement one ready engineering ticket"
+  default_prompt: "Use $d2269-developer to implement this ready engineering ticket."

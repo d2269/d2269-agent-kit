@@ -1,5 +1,5 @@
 ---
-name: technical-documentation
+name: d2269-technical-documentation
 description: >-
   Creates and maintains audience-focused technical documentation from verified
   behavior and accepted architecture decisions, including developer, API,

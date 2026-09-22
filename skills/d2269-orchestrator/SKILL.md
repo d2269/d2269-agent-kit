@@ -1,5 +1,5 @@
 ---
-name: orchestrator
+name: d2269-orchestrator
 description: >-
   Interprets structured role handoffs and recommends the next role, escalation,
   or human intervention when routing is ambiguous. Use for conflicting
@@ -15,7 +15,8 @@ metadata:
 
 # Orchestrator
 
-Reasoning policy for a future workflow controller. This skill does **not** implement that controller.
+Reasoning policy for ambiguous exceptions around the workflow controller. This
+skill does **not** implement or replace that controller.
 
 Bundled resource: [decision template](assets/orchestrator-decision.md). It contains the fresh-session handoff fields required to route work without prior conversation.
 
@@ -33,7 +34,7 @@ Ambiguous cases, including:
 
 ## When not to use
 
-Do not use for happy-path routing that a later deterministic controller should
+Do not use for happy-path routing that the deterministic controller should
 own. Example: QA `PASS` → the policy-defined next gate does not require this
 skill.
 

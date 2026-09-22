@@ -1,5 +1,5 @@
 ---
-name: developer
+name: d2269-developer
 description: >-
   Implements one engineering ticket with implementation readiness READY in
   production code, including required tests, in-scope refactors, directly

@@ -1,5 +1,5 @@
 ---
-name: qa
+name: d2269-qa
 description: >-
   Independently evaluates one Developer ticket with a COMPLETE implementation
   result and a matching Code Review PASS or authorized waiver against its bound

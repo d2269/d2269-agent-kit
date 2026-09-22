@@ -39,10 +39,10 @@ class TempTreeTestCase(unittest.TestCase):
     def mini_kit(self, name: str = "kit") -> Path:
         root = self.new_dir(name)
         (root / "LICENSE").write_text("MIT\n", encoding="utf-8")
-        skill = root / "skills" / "architect"
+        skill = root / "skills" / "d2269-architect"
         skill.mkdir(parents=True)
         (skill / "SKILL.md").write_text(
-            "---\nname: architect\ndescription: Architecture role.\n---\n\n# Architect\n",
+            "---\nname: d2269-architect\ndescription: Architecture role.\n---\n\n# Architect\n",
             encoding="utf-8",
         )
         return root
@@ -89,12 +89,12 @@ class InstallBehaviorTests(TempTreeTestCase):
             mode="copy",
             dry_run=False,
             force=False,
-            skill_names=["architect"],
+            skill_names=["d2269-architect"],
         )
         self.assertEqual(code, 0)
-        dest = project / ".agents" / "skills" / "architect"
+        dest = project / ".agents" / "skills" / "d2269-architect"
         self.assertTrue((dest / "SKILL.md").is_file())
-        self.assertTrue(any(item.startswith("installed architect") for item in lines))
+        self.assertTrue(any(item.startswith("installed d2269-architect") for item in lines))
 
         code, lines = inst.run_install(
             repo_root=kit,
@@ -104,10 +104,10 @@ class InstallBehaviorTests(TempTreeTestCase):
             mode="copy",
             dry_run=False,
             force=False,
-            skill_names=["architect"],
+            skill_names=["d2269-architect"],
         )
         self.assertEqual(code, 0)
-        self.assertTrue(any(item.startswith("unchanged architect") for item in lines))
+        self.assertTrue(any(item.startswith("unchanged d2269-architect") for item in lines))
 
         (dest / "SKILL.md").write_text("user-modified\n", encoding="utf-8")
         code, lines = inst.run_install(
@@ -118,10 +118,10 @@ class InstallBehaviorTests(TempTreeTestCase):
             mode="copy",
             dry_run=False,
             force=False,
-            skill_names=["architect"],
+            skill_names=["d2269-architect"],
         )
         self.assertEqual(code, 1)
-        self.assertTrue(any(item.startswith("CONFLICT architect") for item in lines))
+        self.assertTrue(any(item.startswith("CONFLICT d2269-architect") for item in lines))
         self.assertEqual((dest / "SKILL.md").read_text(encoding="utf-8"), "user-modified\n")
 
     def test_dry_run_writes_nothing(self) -> None:
@@ -135,11 +135,11 @@ class InstallBehaviorTests(TempTreeTestCase):
             mode="copy",
             dry_run=True,
             force=False,
-            skill_names=["architect"],
+            skill_names=["d2269-architect"],
         )
         self.assertEqual(code, 0)
-        self.assertFalse((project / ".claude" / "skills" / "architect").exists())
-        self.assertTrue(any("would install architect" in item for item in lines))
+        self.assertFalse((project / ".claude" / "skills" / "d2269-architect").exists())
+        self.assertTrue(any("would install d2269-architect" in item for item in lines))
 
     def test_copy_includes_bundled_assets_and_resolves_links(self) -> None:
         project = self.new_dir("project")
@@ -151,10 +151,10 @@ class InstallBehaviorTests(TempTreeTestCase):
             mode="copy",
             dry_run=False,
             force=False,
-            skill_names=["architect"],
+            skill_names=["d2269-architect"],
         )
         self.assertEqual(code, 0)
-        dest = project / ".agents" / "skills" / "architect"
+        dest = project / ".agents" / "skills" / "d2269-architect"
         self.assertTrue((dest / "assets" / "architecture-handoff.md").is_file())
         for markdown in dest.rglob("*.md"):
             for target in vs.extract_markdown_targets(
@@ -177,12 +177,45 @@ class InstallBehaviorTests(TempTreeTestCase):
             mode="symlink",
             dry_run=False,
             force=False,
-            skill_names=["architect"],
+            skill_names=["d2269-architect"],
         )
         self.assertEqual(code, 0)
-        dest = project / ".agents" / "skills" / "architect"
+        dest = project / ".agents" / "skills" / "d2269-architect"
         self.assertTrue(dest.is_symlink())
-        self.assertEqual(dest.resolve(), (kit / "skills" / "architect").resolve())
+        self.assertEqual(dest.resolve(), (kit / "skills" / "d2269-architect").resolve())
+
+    def test_unprefixed_copy_is_reported_without_claiming_ownership(self) -> None:
+        kit = self.mini_kit()
+        project = self.new_dir("project")
+        legacy = project / ".agents" / "skills" / "architect"
+        legacy.mkdir(parents=True)
+        (legacy / "SKILL.md").write_text("legacy\n", encoding="utf-8")
+
+        code, lines = inst.run_install(
+            repo_root=kit,
+            platform="codex",
+            scope="project",
+            project_root=project,
+            mode="copy",
+            dry_run=False,
+            force=False,
+            skill_names=["d2269-architect"],
+        )
+
+        self.assertEqual(code, 0)
+        self.assertTrue((legacy / "SKILL.md").is_file())
+        self.assertTrue(
+            any(
+                item.startswith(
+                    "WARNING a potentially legacy or unrelated skill exists"
+                )
+                and "confirm it is an earlier D2269 installation" in item
+                for item in lines
+            )
+        )
+        self.assertTrue(
+            (project / ".agents" / "skills" / "d2269-architect" / "SKILL.md").is_file()
+        )
 
     def test_cli_herdr_exits_nonzero(self) -> None:
         self.assertEqual(inst.main(["--platform", "herdr", "--root", str(REPO_ROOT)]), 2)

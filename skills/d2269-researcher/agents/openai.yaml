@@ -1,0 +1,4 @@
+interface:
+  display_name: "D2269 Researcher"
+  short_description: "Evidence-driven technical research and findings"
+  default_prompt: "Use $d2269-researcher to investigate this bounded research question."

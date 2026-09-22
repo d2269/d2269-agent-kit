@@ -7,7 +7,8 @@ D2269 Agent Kit is a canonical toolkit of reusable **role skills**, structured h
 > [!IMPORTANT]
 > **Status: early development (v0.1).**
 > The core role contracts are usable and structurally validated, but behavioral
-> cross-model evaluation and lifecycle automation are still in progress.
+> cross-model evaluation and controlled live lifecycle integration are still in
+> progress.
 > Interfaces and workflow contracts may change before the first stable release.
 > External pull requests are not currently accepted; feedback is welcome through
 > [LinkedIn](https://www.linkedin.com/in/stanislavd2269/).
@@ -26,18 +27,21 @@ An **agent engineering toolkit**:
 
 - Not a prompt collection
 - Not a multi-agent operating system
-- Not a bundled Linear or Kanban connector
+- Not a universal Kanban framework
 - Not a Herdr daemon or agent launcher
 - Not a model router or quota manager
-- Not an automated Developer → Code Review → QA pipeline
+- Not an automatic ticket-discovery or merge service
 
-The lifecycle diagram below is **conceptual**. Workflow automation is not implemented in version 0.1.
+The local Lifecycle Controller implements the documented delivery profiles. It
+is human-started, sequential within one project, and stops at mandatory human
+decisions.
 
 ## Why it exists
 
 Coding agents are capable, but they are not interchangeable personalities by default. Without explicit roles and handoffs, the same session will design, implement, self-review, and “QA” its own work.
 
-This kit keeps **reasoning** in skills and **deterministic control** in software. Software for orchestration can be added later without forking the skills.
+This kit keeps **reasoning** in skills and **deterministic control** in software.
+The local controller implements that control without forking the skills.
 
 ## Supported ecosystems
 
@@ -62,7 +66,7 @@ determine the route.
 | Profile | Use when | Route |
 | --- | --- | --- |
 | Focused investigation | One bounded question needs evidence, not a production change | Researcher → consumer |
-| Lean ticket delivery | One localized `READY` ticket has an authoritative Code Review waiver | Developer → QA |
+| Minimal ticket delivery | One localized `READY` ticket has an authoritative Code Review waiver | Developer → QA |
 | Standard ticket delivery | One ticket needs independent engineering and acceptance judgments | Developer → Code Review → QA |
 | Planned scope delivery | Several related tickets need decomposition and scope-level completeness | Tech Lead `PLAN` → per-ticket delivery → Tech Lead `COMPLETENESS_REVIEW` → human close-out |
 | Consequential scope delivery | Work affects architecture, system boundaries, major contracts, quality attributes, or migration | Architect `DESIGN` → Tech Lead `PLAN` → per-ticket delivery → Tech Lead `COMPLETENESS_REVIEW` → Architect `CONFORMANCE_REVIEW` → human close-out |
@@ -93,6 +97,25 @@ Start with these contracts:
   agent session.
 - [Role model](docs/role-model.md) — resolve authority and boundary questions.
 
+### Skill names and explicit invocation
+
+Every public skill package uses the `d2269-` namespace. This prevents generic
+names such as `architect` from colliding with unrelated local or project skills
+and makes the selected package visible in agent skill pickers.
+
+In Codex, select the displayed `D2269 ...` entry or mention the canonical skill
+name explicitly in the prompt:
+
+```text
+$d2269-architect Use DESIGN mode for the supplied product specification.
+$d2269-developer Implement ticket ABC-123 and only that ticket.
+$d2269-code-review Review the exact implementation revision for ticket ABC-123.
+```
+
+The namespace identifies the installed package. Lifecycle artifacts and the
+controller deliberately keep stable role IDs such as `architect`, `developer`,
+and `qa`; those are protocol values, not alternative skill names.
+
 ## Role architecture
 
 ```text
@@ -121,9 +144,9 @@ source may route the exact Developer revision directly to QA.
 
 **Orchestrator** is an optional reasoning role for ambiguous routing. It is not a
 workflow engine. Happy-path transitions (for example QA `PASS` → the
-policy-defined next gate) should later be ordinary software.
+policy-defined next gate) are ordinary controller software.
 
-A future Lifecycle Controller will own those transitions and a durable rework
+The Lifecycle Controller owns those transitions and a durable rework
 counter for the current ticket-contract revision. At a policy-defined limit
 (three return events is a reasonable initial setting), it pauses the ticket and
 requests Tech Lead `BLOCKER_REVIEW`. Every such review is then presented to a
@@ -146,7 +169,7 @@ Developer executes one ticket assigned to it whose implementation readiness is
 `READY`; this semantic field is separate from tracker workflow status. The ticket
 is the sole work contract. Developer may use ticket-linked sources and comments
 for context and produces a mandatory history comment for every final result, but
-does not change workflow state. A future controller or human workflow owner
+does not change workflow state. The controller or a human workflow owner
 publishes ready-to-post comments before routing completed work to Code Review.
 
 Code Review independently evaluates the exact implementation revision for that
@@ -174,16 +197,16 @@ Layout and non-goals: [docs/architecture.md](docs/architecture.md).
 
 ### Role responsibilities
 
-| Skill | Owns |
-| --- | --- |
-| `architect` | Architecture baseline and decisions, technical workstreams, design escalations, architecture conformance |
-| `tech-lead` | Spec-driven implementation plan and child tasks, optional authorized tracker publication, blocker triage, technical completeness |
-| `developer` | One `READY` ticket: in-scope code, tests, affected docs, and ticket-linked evidence |
-| `qa` | One eligible ticket with a `COMPLETE` Developer result and Code Review `PASS` or authorized waiver: independent acceptance verdict and requested next action |
-| `orchestrator` | Next-role recommendation when routing is ambiguous |
-| `researcher` | Evidence-driven investigation; not implementation |
-| `code-review` | One ticket's exact implementation revision: independent engineering verdict, ticket feedback, and requested next action |
-| `technical-documentation` | Audience-focused durable docs from verified behavior and accepted architecture decisions |
+| Role | Skill invocation | Owns |
+| --- | --- | --- |
+| Architect | `$d2269-architect` | Architecture baseline and decisions, technical workstreams, design escalations, architecture conformance |
+| Tech Lead | `$d2269-tech-lead` | Spec-driven implementation plan and child tasks, optional authorized tracker publication, blocker triage, technical completeness |
+| Developer | `$d2269-developer` | One `READY` ticket: in-scope code, tests, affected docs, and ticket-linked evidence |
+| QA | `$d2269-qa` | One eligible ticket with a `COMPLETE` Developer result and Code Review `PASS` or authorized waiver: independent acceptance verdict and requested next action |
+| Orchestrator | `$d2269-orchestrator` | Next-role recommendation when routing is ambiguous |
+| Researcher | `$d2269-researcher` | Evidence-driven investigation; not implementation |
+| Code Review | `$d2269-code-review` | One ticket's exact implementation revision: independent engineering verdict, ticket feedback, and requested next action |
+| Technical Documentation | `$d2269-technical-documentation` | Audience-focused durable docs from verified behavior and accepted architecture decisions |
 
 ### Skill boundaries
 
@@ -200,8 +223,9 @@ replace QA. Code Review does not auto-apply fixes.
 
 ```text
 skills/          Canonical, self-contained Agent Skills and bundled output assets
+controller/      Shared lifecycle engine, SQLite state, Git, Herdr, and Linear adapters
 docs/            Architecture, installation, authoring, role model, handoff contract
-scripts/         Validator and installer (no extra runtime dependencies)
+scripts/         Validator, installer, and controller demonstrations
 adapters/        Platform notes and installer entry points
 ```
 
@@ -230,9 +254,27 @@ an independent snapshot instead:
 python3 scripts/install_skills.py --platform codex --scope user --mode copy
 ```
 
+Install one role by its full canonical name:
+
+```bash
+python3 scripts/install_skills.py --platform codex --scope user --skill d2269-architect
+```
+
+For Codex user scope, the resulting package is
+`$HOME/.agents/skills/d2269-architect`. Restart Codex or open a fresh task after
+installation so discovery is refreshed.
+
 Copied installations do not update automatically. After reviewing a later kit
 revision with `--dry-run`, repeat the copy command with `--force` to replace an
 older divergent snapshot.
+
+Versions installed before the `d2269-` namespace may still have unprefixed
+folders such as `architect` or `developer`. Because an unprefixed folder may
+also belong to another project, the installer reports it as potentially legacy
+or unrelated and never deletes it. Verify the new `D2269 ...` entry, then remove
+or disable the unprefixed copy only after confirming it is an earlier D2269
+installation.
+See [the migration instructions](docs/installation.md#migration-from-unprefixed-skill-names).
 
 Use `--platform cursor` or `--platform claude` for those agents. For a
 project-local installation, add `--scope project --project-root /path/to/repo`.
@@ -246,14 +288,25 @@ described in the [installation guide](docs/installation.md#herdr).
 Full commands and verified discovery paths:
 [docs/installation.md](docs/installation.md).
 
+## Lifecycle Controller
+
+The stdlib-only Python controller provides one shared engine for `minimal`,
+`standard`, `planned`, and `consequential` delivery. It uses Herdr for fresh
+role sessions, Git worktrees for exact-revision isolation, SQLite for durable
+project-scoped state, and a production Linear GraphQL adapter for authorized
+comments, child-ticket synchronization, and status transitions.
+
+See [Lifecycle Controller](docs/controller.md) for installation, configuration,
+CLI usage, security, recovery, troubleshooting, tests, and current limitations.
+
 ## Current maturity
 
-**Version 0.1.** Usable role skills, handoff templates, validator, and conservative
-adapters. The Lifecycle Controller described above is a future contract, not an
-implementation. Tech Lead can use an externally supplied,
-authorized tracker connector through the bundled provider-neutral capability
-contract, but the kit does not bundle a provider adapter. Worktrees, retries,
-and model routing remain deferred by design.
+**Version 0.1.** Role skills, handoff templates, validator, installer, and the
+controller are implemented. Deterministic fake-boundary tests and credential-free
+state/receipt demonstrations pass. Herdr 0.9.0 syntax and current official Linear
+GraphQL behavior were verified, but a controlled live end-to-end pilot is still
+required before production adoption. Automatic model routing remains deferred by
+design.
 
 Structural validation checks package shape, metadata, links, and deterministic
 repository rules. Behavioral eval cases define repeatable expectations but do

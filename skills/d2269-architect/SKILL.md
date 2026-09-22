@@ -1,5 +1,5 @@
 ---
-name: architect
+name: d2269-architect
 description: >-
   Designs and reviews system-level architecture for consequential engineering
   changes. Use before implementation to define architecture and technical

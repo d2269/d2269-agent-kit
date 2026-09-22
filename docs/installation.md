@@ -8,6 +8,33 @@ The installer is idempotent, prefers non-destructive updates, supports `--dry-ru
 python3 scripts/install_skills.py --help
 ```
 
+## Canonical skill names
+
+All packages use the `d2269-` namespace so generic role names do not collide
+with skills installed by another project. Directory names, `SKILL.md` names,
+and explicit invocations are identical:
+
+| Role | Canonical package and Codex invocation |
+| --- | --- |
+| Architect | `$d2269-architect` |
+| Tech Lead | `$d2269-tech-lead` |
+| Developer | `$d2269-developer` |
+| Code Review | `$d2269-code-review` |
+| QA | `$d2269-qa` |
+| Researcher | `$d2269-researcher` |
+| Technical Documentation | `$d2269-technical-documentation` |
+| Orchestrator | `$d2269-orchestrator` |
+
+For example, install only Architect with:
+
+```bash
+python3 scripts/install_skills.py --platform codex --scope user --skill d2269-architect
+```
+
+Names without the prefix are internal lifecycle role IDs only. They appear in
+machine-readable envelopes and controller state, but they do not identify an
+installed skill package.
+
 ## Global vs project
 
 | Scope | Meaning | Typical use |
@@ -102,6 +129,31 @@ Therefore:
 - Existing destinations with the same content (or a symlink already pointing at the canonical directory) are reported as unchanged.
 - Existing destinations with different content are skipped and cause a non-zero exit unless `--force` is passed.
 - `--dry-run` prints the plan and writes nothing.
-- `--skill name` may be repeated to install a subset.
+- `--skill name` may be repeated to install a subset; use the complete
+  canonical name, for example `--skill d2269-architect`.
+
+## Migration from unprefixed skill names
+
+Releases before the namespace change installed generic directories. They map as
+follows:
+
+| Earlier D2269 directory name | Current directory |
+| --- | --- |
+| `architect` | `d2269-architect` |
+| `tech-lead` | `d2269-tech-lead` |
+| `developer` | `d2269-developer` |
+| `code-review` | `d2269-code-review` |
+| `qa` | `d2269-qa` |
+| `researcher` | `d2269-researcher` |
+| `technical-documentation` | `d2269-technical-documentation` |
+| `orchestrator` | `d2269-orchestrator` |
+
+The installer reports a matching unprefixed directory as potentially legacy or
+unrelated, but does not modify or delete it. An `architect` or `developer` skill
+may belong to another project. Install the current packages, open a fresh agent
+task, and verify the `D2269 ...` entries. Archive, remove, or disable an
+unprefixed directory only after confirming it is an earlier D2269 installation.
+Leaving both D2269 versions installed is safe but creates ambiguous duplicate
+choices in skill pickers; leaving an unrelated skill installed is expected.
 
 Review scripts and skills before installing. See [SECURITY.md](../SECURITY.md).

@@ -1,5 +1,5 @@
 ---
-name: tech-lead
+name: d2269-tech-lead
 description: >-
   Plans, decomposes, and reviews implementation-level engineering work for a
   defined scope. Use after accepted architecture or requirements to produce an

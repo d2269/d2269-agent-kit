@@ -1,0 +1,4 @@
+interface:
+  display_name: "D2269 Orchestrator"
+  short_description: "Resolve ambiguous role routing and escalation"
+  default_prompt: "Use $d2269-orchestrator to resolve this ambiguous workflow handoff."

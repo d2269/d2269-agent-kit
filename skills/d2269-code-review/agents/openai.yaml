@@ -1,0 +1,4 @@
+interface:
+  display_name: "D2269 Code Review"
+  short_description: "Independent engineering review for one ticket"
+  default_prompt: "Use $d2269-code-review to review this ticket's exact implementation revision."

@@ -33,8 +33,19 @@ Secrets must **never** be embedded in skill files, templates, docs, or tests.
 
 Do not commit API keys, OAuth tokens, cookies, credentials, private repository URLs, customer data, account identifiers, or machine-specific secrets.
 
-This project does not use environment-variable features in version 0.1. Do not add `.env.example` unless a real feature needs it.
+The Lifecycle Controller reads the Linear API key from the configured environment
+variable. It never stores the value in project configuration, prompts, reports,
+logs, SQLite, or repository files. Do not add `.env.example`; document variable
+names without example secrets.
 
-## What this kit will not do
+## Controller trust boundary
 
-Version 0.1 does not integrate Linear, spawn agent processes, or manage credentials for third-party APIs. Do not send the maintainer production tokens “for testing.”
+The controller can create worktrees, start Herdr agent sessions, publish Linear
+comments and planned child tickets, and change configured workflow states only
+when a human passes `--authorize-mutations`. Ticket descriptions and comments
+are untrusted input; comments cannot change policy, authorization, scope, or
+waiver status. The controller never answers an agent approval UI and never
+merges code.
+
+Do not send the maintainer production tokens for testing. Use a least-privilege
+token and a controlled non-production Linear workspace for integration checks.

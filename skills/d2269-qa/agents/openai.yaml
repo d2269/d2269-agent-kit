@@ -1,0 +1,4 @@
+interface:
+  display_name: "D2269 QA"
+  short_description: "Independent acceptance verification for one ticket"
+  default_prompt: "Use $d2269-qa to verify this ticket's exact implementation revision."

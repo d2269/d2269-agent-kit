@@ -26,10 +26,10 @@ quality gates cover the actual risk.
 | Profile | Entry conditions | Route | Required artifact and exit |
 | --- | --- | --- | --- |
 | **Focused investigation** | One bounded research question; no production change is authorized; the result is evidence for a later decision | Human or requesting role → Researcher → consumer | `Research Report`; exit when answered, explicitly unanswerable, or blocked with one next action |
-| **Lean ticket delivery** | One current `READY` ticket; localized and reversible change; strong automated verification; authoritative policy already grants a Code Review waiver for this ticket revision | Developer `COMPLETE` → QA → policy-defined next gate or `Done` | Implementation Report and QA Report, both bound to the exact ticket revision; Developer does not self-approve acceptance |
-| **Standard ticket delivery** | One current `READY` ticket; independent engineering and acceptance judgments are required | Developer `COMPLETE` → Code Review `PASS` → QA `PASS` → policy-defined next gate or `Done` | Ticket-bound implementation, review, and acceptance evidence with mandatory history comments |
-| **Planned scope delivery** | Several related or dependent tickets require decomposition and scope-level completeness, but no consequential architecture condition applies | Tech Lead `PLAN` → lean or standard delivery per ticket → Tech Lead `COMPLETENESS_REVIEW` → human close-out | Implementation Plan, independently usable child tickets, per-ticket evidence, scope-completeness verdict, and human decision |
-| **Consequential scope delivery** | The scope implements an accepted architecture decision or workstream, or affects a named system boundary, public or cross-component contract, quality attribute, or migration decision | Architect `DESIGN` when the baseline is missing or must change → Tech Lead `PLAN` → lean or standard delivery per ticket → Tech Lead `COMPLETENESS_REVIEW` → Architect `CONFORMANCE_REVIEW` → human close-out | Accepted architecture baseline, plan and child tickets, per-ticket evidence, scope-completeness verdict, conformance verdict, and human decision |
+| **Minimal ticket delivery** (`minimal`) | One current `READY` ticket; localized and reversible change; strong automated verification; authoritative policy already grants a Code Review waiver for this ticket revision | Developer `COMPLETE` → QA → policy-defined next gate or `Done` | Implementation Report and QA Report, both bound to the exact ticket revision; Developer does not self-approve acceptance |
+| **Standard ticket delivery** (`standard`) | One current `READY` ticket; independent engineering and acceptance judgments are required | Developer `COMPLETE` → Code Review `PASS` → QA `PASS` → policy-defined next gate or `Done` | Ticket-bound implementation, review, and acceptance evidence with mandatory history comments |
+| **Planned scope delivery** (`planned`) | Several related or dependent tickets require decomposition and scope-level completeness, but no consequential architecture condition applies | Tech Lead `PLAN` → minimal or standard delivery per ticket → Tech Lead `COMPLETENESS_REVIEW` → human close-out | Implementation Plan, independently usable child tickets, per-ticket evidence, scope-completeness verdict, and human decision |
+| **Consequential scope delivery** (`consequential`) | The scope implements an accepted architecture decision or workstream, or affects a named system boundary, public or cross-component contract, quality attribute, or migration decision | Architect `DESIGN` when the baseline is missing or must change → Tech Lead `PLAN` → minimal or standard delivery per ticket → Tech Lead `COMPLETENESS_REVIEW` → Architect `CONFORMANCE_REVIEW` → human close-out | Accepted architecture baseline, plan and child tickets, per-ticket evidence, scope-completeness verdict, conformance verdict, and human decision |
 
 Researcher may precede any profile when a bounded evidence gap prevents the
 owning role from proceeding. Research does not silently become implementation:
@@ -37,7 +37,7 @@ if it discovers a required production change, it closes with a report and hands
 the evidence to Architect, Tech Lead, or a separately authorized Developer
 ticket.
 
-The lean profile is not an implicit permission to skip Code Review. Its waiver
+The minimal profile is not an implicit permission to skip Code Review. Its waiver
 must come from an authoritative contract source, name the permitting policy and
 owner, and apply to the current ticket and exact implementation target. If those
 conditions are absent, use standard ticket delivery. QA remains independent.

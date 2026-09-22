@@ -13,7 +13,7 @@ invoke every role for every request. Select the proportional route first in
 unchanged whenever their stages are selected.
 
 Only behavior defined by the role skills or explicitly adopted workflow policy
-belongs here. Role outputs are semantic results; a human or future Lifecycle
+belongs here. Role outputs are semantic results; a human or the Lifecycle
 Controller performs authorized tracker transitions.
 
 ## Current artifact flow
@@ -239,7 +239,7 @@ invent an architecture answer merely to complete decomposition.
 ### Output A — Implementation Plan
 
 Produce exactly one Implementation Plan for the scope using
-[`implementation-plan.md`](../skills/tech-lead/assets/implementation-plan.md).
+[`implementation-plan.md`](../skills/d2269-tech-lead/assets/implementation-plan.md).
 It records:
 
 - Plan ID, revision, source artifacts, and plan status
@@ -258,7 +258,7 @@ It records:
 ### Output B — Implementation Task specifications
 
 Produce one Implementation Task specification per child ticket using
-[`implementation-task.md`](../skills/tech-lead/assets/implementation-task.md).
+[`implementation-task.md`](../skills/d2269-tech-lead/assets/implementation-task.md).
 Each specification records:
 
 - stable Task ID and parent Plan ID/revision;
@@ -296,7 +296,7 @@ of an Implementation Task. All of the following must hold:
 5. If the tracker is the authoritative execution channel, the selected external
    record and its mappings are verified `SYNCED` before selection there.
 
-When these conditions hold, a human or future Lifecycle Controller may select
+When these conditions hold, a human or the Lifecycle Controller may select
 one ready child ticket for the next role invocation.
 
 ### Optional tracker publication
@@ -328,7 +328,7 @@ Select the next executable child ticket without making Developer reconstruct the
 plan, choose its own work, or combine multiple tickets.
 
 This is workflow coordination, not a reasoning role. A human workflow owner or
-future deterministic Lifecycle Controller performs the selection. A ticket
+deterministic Lifecycle Controller performs the selection. A ticket
 number is a stable identity, not an execution priority.
 
 ### Input
@@ -417,7 +417,7 @@ state.
 ### Output
 
 Use
-[`implementation-report.md`](../skills/developer/assets/implementation-report.md)
+[`implementation-report.md`](../skills/d2269-developer/assets/implementation-report.md)
 to return:
 
 - source ticket and ticket revision;
@@ -522,7 +522,7 @@ Each finding is exactly one of:
 - `QUESTION`: unresolved point whose evidence is insufficient to claim a defect.
 
 Use
-[`code-review-report.md`](../skills/code-review/assets/code-review-report.md) to
+[`code-review-report.md`](../skills/d2269-code-review/assets/code-review-report.md) to
 return:
 
 - source ticket and exact review target;
@@ -627,7 +627,7 @@ evidence or reproduction, location, and impact.
 
 ### Output
 
-Use [`qa-report.md`](../skills/qa/assets/qa-report.md) to return:
+Use [`qa-report.md`](../skills/d2269-qa/assets/qa-report.md) to return:
 
 - source ticket and exact evaluation target;
 - satisfied Code Review gate or authorized waiver;
@@ -692,7 +692,7 @@ count is a workflow trigger, not evidence of the blocker cause.
 
 ### Trigger and input
 
-A future Lifecycle Controller triggers `BLOCKER_REVIEW` when the configured
+The Lifecycle Controller triggers `BLOCKER_REVIEW` when the configured
 ticket-rework limit is reached. A material ticket, dependency, requirements,
 plan, or suspected architecture blocker may trigger it earlier without waiting
 for the limit.
@@ -711,7 +711,7 @@ Tech Lead assigns exactly one primary classification:
 - `REQUIREMENTS_GAP`;
 - `INSUFFICIENT_EVIDENCE`.
 
-Use [`blocker-review.md`](../skills/tech-lead/assets/blocker-review.md) to record
+Use [`blocker-review.md`](../skills/d2269-tech-lead/assets/blocker-review.md) to record
 the classification, evidence, retained work, proposed resolution, material
 alternatives, scope and external-sync impact, recommended next role, and one
 exact human decision request.
@@ -776,7 +776,7 @@ Tech Lead:
 ### Output and next action
 
 Use
-[`technical-completeness-review.md`](../skills/tech-lead/assets/technical-completeness-review.md)
+[`technical-completeness-review.md`](../skills/d2269-tech-lead/assets/technical-completeness-review.md)
 to return the review basis, completion matrix, deviations, independent verdicts,
 conformance applicability, evidence pack when required, and handoff.
 
@@ -858,7 +858,7 @@ Architect:
 ### Output and next action
 
 Use
-[`architecture-conformance-review.md`](../skills/architect/assets/architecture-conformance-review.md)
+[`architecture-conformance-review.md`](../skills/d2269-architect/assets/architecture-conformance-review.md)
 to return the review basis, conformance matrix, prioritized systemic findings,
 decision and documentation status, durable close-out, residual risks,
 architecture debt, and handoff.

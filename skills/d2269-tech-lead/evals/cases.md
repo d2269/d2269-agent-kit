@@ -1,6 +1,6 @@
 # Tech Lead Behavioral Evaluation Cases
 
-Run each case in a fresh agent context with the installed `tech-lead` skill and
+Run each case in a fresh agent context with the installed `d2269-tech-lead` skill and
 only the artifacts named by the case. Judge observable behavior and produced
 artifacts, not exact wording. Use a mock or disposable tracker for mutation
 cases.

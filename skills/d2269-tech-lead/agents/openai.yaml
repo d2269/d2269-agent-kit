@@ -1,0 +1,4 @@
+interface:
+  display_name: "D2269 Tech Lead"
+  short_description: "Implementation planning, decomposition, and blockers"
+  default_prompt: "Use $d2269-tech-lead to plan or review the implementation scope."

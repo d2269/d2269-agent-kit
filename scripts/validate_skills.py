@@ -18,6 +18,8 @@ YAML_KEY_RE = re.compile(r"^[A-Za-z_][A-Za-z0-9_-]*$")
 MAX_NAME_LEN = 64
 MAX_DESCRIPTION_LEN = 1024
 MAX_SKILL_LINES = 500
+MIN_SHORT_DESCRIPTION_LEN = 25
+MAX_SHORT_DESCRIPTION_LEN = 64
 MARKDOWN_LINK_RE = re.compile(r"\[[^\]]*\]\(([^)]+)\)")
 # Letters in scripts that should not appear in public kit English.
 NON_LATIN_RE = re.compile(
@@ -226,6 +228,55 @@ def check_english(text: str, label: str) -> list[str]:
     return []
 
 
+def validate_openai_yaml(skill_dir: Path, repo_root: Path, skill_name: str) -> list[str]:
+    """Validate Codex UI metadata required by this kit's namespaced skills."""
+    path = skill_dir / "agents" / "openai.yaml"
+    rel = path.relative_to(repo_root).as_posix()
+    if not path.is_file():
+        return [f"{rel}: missing Codex UI metadata"]
+
+    text = path.read_text(encoding="utf-8")
+    errors = check_english(text, rel)
+    try:
+        data = parse_simple_yaml(text)
+    except FrontmatterError as exc:
+        return [*errors, f"{rel}: {exc}"]
+
+    interface = data.get("interface")
+    if not isinstance(interface, dict):
+        return [*errors, f"{rel}: interface must be a string-only mapping"]
+
+    for field in ("display_name", "short_description", "default_prompt"):
+        value = interface.get(field)
+        if not isinstance(value, str) or not value.strip():
+            errors.append(f"{rel}: interface.{field} must be a non-empty string")
+
+    display_name = interface.get("display_name", "")
+    if isinstance(display_name, str) and not display_name.startswith("D2269 "):
+        errors.append(f"{rel}: interface.display_name must start with 'D2269 '")
+
+    short_description = interface.get("short_description", "")
+    if isinstance(short_description, str) and not (
+        MIN_SHORT_DESCRIPTION_LEN
+        <= len(short_description.strip())
+        <= MAX_SHORT_DESCRIPTION_LEN
+    ):
+        errors.append(
+            f"{rel}: interface.short_description must be "
+            f"{MIN_SHORT_DESCRIPTION_LEN}-{MAX_SHORT_DESCRIPTION_LEN} characters"
+        )
+
+    default_prompt = interface.get("default_prompt", "")
+    invocation_pattern = re.compile(
+        rf"(?<![A-Za-z0-9_-])\${re.escape(skill_name)}(?![A-Za-z0-9_-])"
+    )
+    if isinstance(default_prompt, str) and not invocation_pattern.search(default_prompt):
+        errors.append(
+            f"{rel}: interface.default_prompt must mention ${skill_name} explicitly"
+        )
+    return errors
+
+
 def validate_skill_dir(skill_dir: Path, repo_root: Path) -> list[str]:
     errors: list[str] = []
     skill_md = skill_dir / "SKILL.md"
@@ -272,6 +323,9 @@ def validate_skill_dir(skill_dir: Path, repo_root: Path) -> list[str]:
 
     if "metadata" in data and not isinstance(data["metadata"], dict):
         errors.append(f"{rel}: metadata must be a mapping of string keys to string values")
+
+    if name.startswith("d2269-"):
+        errors.extend(validate_openai_yaml(skill_dir, repo_root, name))
 
     errors.extend(check_english(text, rel))
 

@@ -1,5 +1,5 @@
 ---
-name: researcher
+name: d2269-researcher
 description: >-
   Performs evidence-driven research from repositories, documentation, APIs,
   standards, and external sources, separating verified facts from assumptions.

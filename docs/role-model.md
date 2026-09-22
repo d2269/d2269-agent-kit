@@ -4,13 +4,19 @@ This document defines the collaboration model for D2269 Agent Kit. It exists so 
 
 Roles are **reasoning procedures**, not process supervisors and not model assignments. Any compatible agent runtime may invoke any role. Model selection is outside this kit.
 
+Installed packages use namespaced names such as `d2269-architect`; lifecycle
+records use stable role IDs such as `architect`. The package name selects the
+skill, while the role ID identifies the protocol participant. See
+[Installation](installation.md#canonical-skill-names) for the complete mapping.
+
 Not every request uses the complete role chain. The
 [execution profiles](execution-profiles.md) select a proportional route without
 changing these role boundaries. One coherent role may span multiple fresh
 sessions when its durable artifact preserves progress and the objective,
 authority, tools, and output contract have not changed.
 
-The future development lifecycle is conceptual only. No workflow engine is implemented in version 0.1.
+The role chain is implemented by the optional local Lifecycle Controller. The
+role boundaries remain valid for manual execution without the controller.
 
 ```text
 Researcher (optional)
@@ -36,7 +42,7 @@ The branches are feedback outcomes, not parallel review stages. A valid Code
 Review waiver bound to the current ticket revision in an authoritative contract
 source may route the exact Developer revision directly to QA.
 
-Failures may return work to an earlier role. A future controller pauses repeated
+Failures may return work to an earlier role. The controller pauses repeated
 rework at a policy-defined limit and requests Tech Lead `BLOCKER_REVIEW`; the
 count is a trigger, not a diagnosis. Evidence of a design-level issue may lead to
 Architect `ESCALATION_REVIEW`, but only after the blocker review is presented to
@@ -69,10 +75,10 @@ implementation evidence.
 **Outputs:** A minimal durable architecture baseline, semantic decision records,
 outcome-oriented technical workstreams, interface and ownership boundaries,
 risks, migration strategy, and a mode-specific handoff or verdict. Templates:
-[`design handoff`](../skills/architect/assets/architecture-handoff.md),
-[`escalation review`](../skills/architect/assets/architecture-escalation-review.md),
+[`design handoff`](../skills/d2269-architect/assets/architecture-handoff.md),
+[`escalation review`](../skills/d2269-architect/assets/architecture-escalation-review.md),
 and
-[`conformance review`](../skills/architect/assets/architecture-conformance-review.md).
+[`conformance review`](../skills/d2269-architect/assets/architecture-conformance-review.md).
 Conformance also closes the durable baseline by applying supported
 architecture-documentation changes when writes are authorized, or by returning
 file-ready changes with exact paths.
@@ -109,11 +115,11 @@ evidence, supplied ticket history and workflow trigger, or completed-scope
 implementation evidence and independent review outputs.
 
 **Outputs:** A traceable
-[`implementation plan`](../skills/tech-lead/assets/implementation-plan.md), one
-[`implementation task specification`](../skills/tech-lead/assets/implementation-task.md)
+[`implementation plan`](../skills/d2269-tech-lead/assets/implementation-plan.md), one
+[`implementation task specification`](../skills/d2269-tech-lead/assets/implementation-task.md)
 per child task, an evidence-backed
-[`blocker review`](../skills/tech-lead/assets/blocker-review.md), or a
-[`technical completeness review`](../skills/tech-lead/assets/technical-completeness-review.md).
+[`blocker review`](../skills/d2269-tech-lead/assets/blocker-review.md), or a
+[`technical completeness review`](../skills/d2269-tech-lead/assets/technical-completeness-review.md).
 A consequential technically complete scope includes an evidence pack for
 Architect `CONFORMANCE_REVIEW`. When explicitly authorized and an appropriate
 connector is available, Tech Lead may also publish the validated plan and child
@@ -168,7 +174,7 @@ ticket-history comment with a verified receipt or `READY_TO_POST` text, and a
 next-owner handoff. Code Review receives only a `COMPLETE` implementation and its
 exact diff; QA may receive it directly only under a recorded authorized Code
 Review waiver. Blockers go to Tech Lead. Template:
-[`skills/developer/assets/implementation-report.md`](../skills/developer/assets/implementation-report.md).
+[`skills/d2269-developer/assets/implementation-report.md`](../skills/d2269-developer/assets/implementation-report.md).
 
 **Authority:** Change production code and tests in ticket scope. Update
 documentation directly affected by the change. Choose local implementation
@@ -211,7 +217,7 @@ evidence, actionable findings, exactly one verdict (`PASS`,
 `CHANGES_REQUESTED`, or `BLOCKED`), a mandatory ticket-history comment with a
 verified receipt or `READY_TO_POST` text, and a requested workflow action. The
 comment distinguishes passed, failed, and unverified checks. Template:
-[`skills/qa/assets/qa-report.md`](../skills/qa/assets/qa-report.md).
+[`skills/d2269-qa/assets/qa-report.md`](../skills/d2269-qa/assets/qa-report.md).
 
 **Authority:** Own the semantic acceptance verdict, ticket-bound finding and
 comment content, and requested next action. State what was not verified. Request
@@ -242,7 +248,7 @@ Report when continuing a long-running investigation.
 unknowns, recommendation, confidence, source references when external sources
 were used, and a continuation checkpoint when the investigation is still in
 progress. Template:
-[`skills/researcher/assets/research-report.md`](../skills/researcher/assets/research-report.md).
+[`skills/d2269-researcher/assets/research-report.md`](../skills/d2269-researcher/assets/research-report.md).
 
 **Authority:** Report facts, conflicts, and recommendations. Work offline when the network is unavailable.
 
@@ -259,7 +265,7 @@ Fabricating citations.
 
 **Inputs:** Structured role outputs, stated objective, known blockers, missing artifacts.
 
-**Outputs:** Recommended next role and action, escalation and human-input flags, compact handoff context. Template: [`skills/orchestrator/assets/orchestrator-decision.md`](../skills/orchestrator/assets/orchestrator-decision.md).
+**Outputs:** Recommended next role and action, escalation and human-input flags, compact handoff context. Template: [`skills/d2269-orchestrator/assets/orchestrator-decision.md`](../skills/d2269-orchestrator/assets/orchestrator-decision.md).
 
 **Authority:** Recommend a next role. Identify contradictions, missing prerequisites, and stuck work. Recommend human intervention.
 
@@ -285,7 +291,7 @@ questions, verification evidence, exactly one verdict (`PASS`,
 `CHANGES_REQUESTED`, or `BLOCKED`), a mandatory ticket-history comment with a
 verified receipt or `READY_TO_POST` text, and a requested workflow action.
 Template:
-[`skills/code-review/assets/code-review-report.md`](../skills/code-review/assets/code-review-report.md).
+[`skills/d2269-code-review/assets/code-review-report.md`](../skills/d2269-code-review/assets/code-review-report.md).
 
 **Authority:** Own the engineering verdict, ticket-bound findings and comment
 content, and requested next action. `PASS` requests progression of the exact

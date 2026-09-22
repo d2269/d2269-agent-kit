@@ -30,6 +30,17 @@ PLATFORMS = ("cursor", "codex", "claude", "herdr")
 SCOPES = ("user", "project")
 MODES = ("symlink", "copy")
 
+UNPREFIXED_SKILL_NAMES = {
+    "d2269-architect": "architect",
+    "d2269-tech-lead": "tech-lead",
+    "d2269-developer": "developer",
+    "d2269-code-review": "code-review",
+    "d2269-qa": "qa",
+    "d2269-researcher": "researcher",
+    "d2269-technical-documentation": "technical-documentation",
+    "d2269-orchestrator": "orchestrator",
+}
+
 
 class InstallError(Exception):
     pass
@@ -153,6 +164,18 @@ def run_install(
     conflicts = 0
     prefix = "dry-run: " if dry_run else ""
     lines.append(f"{prefix}destination root: {dest_root}")
+    selected_names = {source.name for source in skills}
+    for current_name, unprefixed_name in UNPREFIXED_SKILL_NAMES.items():
+        unprefixed_dest = dest_root / unprefixed_name
+        if current_name in selected_names and (
+            unprefixed_dest.exists() or unprefixed_dest.is_symlink()
+        ):
+            lines.append(
+                "WARNING a potentially legacy or unrelated skill exists at "
+                f"{unprefixed_dest}; confirm it is an earlier D2269 installation "
+                f"before archiving, removing, or disabling it after {current_name} "
+                "is verified"
+            )
     for source in skills:
         dest = dest_root / source.name
         status = install_one(source, dest, mode=mode, dry_run=dry_run, force=force)

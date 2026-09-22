@@ -1,0 +1,37 @@
+{
+  "schema_version": "1",
+  "project_id": "example-project",
+  "repository": ".",
+  "state_root": "../.d2269-controller-state",
+  "tracker": {
+    "kind": "linear",
+    "endpoint": "https://api.linear.app/graphql",
+    "token_env": "LINEAR_API_KEY",
+    "team_id": "replace-with-linear-team-uuid",
+    "status_mapping": {
+      "ready": "Ready",
+      "in_development": "In Progress",
+      "in_code_review": "In Review",
+      "in_qa": "QA",
+      "blocked": "Blocked",
+      "human_review_required": "Needs Decision",
+      "done": "Done"
+    }
+  },
+  "runner": {
+    "kind": "herdr",
+    "agent_kind": "codex",
+    "agent_args": [],
+    "timeout_ms": 1800000
+  },
+  "git": {
+    "base_branch": "main",
+    "branch_prefix": "controller/"
+  },
+  "policy": {
+    "default_profile": "standard",
+    "rework_limit": 3,
+    "partial_policy": "stop",
+    "authorized_minimal_waivers": []
+  }
+}

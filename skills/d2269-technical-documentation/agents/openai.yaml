@@ -1,0 +1,4 @@
+interface:
+  display_name: "D2269 Technical Documentation"
+  short_description: "Verified technical documentation and maintenance"
+  default_prompt: "Use $d2269-technical-documentation to create or update this technical documentation."

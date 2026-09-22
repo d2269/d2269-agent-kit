@@ -22,7 +22,7 @@ Do not vendor that file here. Keep it independently updatable.
 
 ## What official docs do not cover
 
-Herdr documentation does not define a Herdr-owned directory for **third-party** role skills such as `architect` or `qa`.
+Herdr documentation does not define a Herdr-owned directory for **third-party** role skills such as `d2269-architect` or `d2269-qa`.
 
 Agents running inside Herdr panes discover this kit through the agent they are (Cursor, Codex, Claude, and so on). Use those adapters.
 
@@ -37,3 +37,15 @@ This command exits non-zero with the TODO below rather than inventing a path.
 If Herdr documents a first-party root for third-party Agent Skills, verify the path against that documentation and then teach `scripts/install_skills.py` the `herdr` platform target.
 
 Until then, role skills in this kit remain usable without Herdr.
+
+## Lifecycle Controller
+
+The controller uses the installed Herdr CLI as a role-session runner; it does
+not install role skills into a Herdr-owned directory. Install the role skills for
+the selected coding agent, then configure `runner.agent_kind` as `codex`,
+`claude`, or `cursor`. See [Lifecycle Controller](../../docs/controller.md).
+
+The adapter follows the official automation contract: parse returned JSON IDs,
+start the agent in an existing shell pane, use a bounded `agent prompt --wait`,
+and treat `blocked`, `unknown`, timeout, or stalled submission as safe-stop
+conditions. It never treats Herdr `idle` or `done` as the role verdict.

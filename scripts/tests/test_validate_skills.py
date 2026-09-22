@@ -68,19 +68,63 @@ class RepositoryValidationTests(unittest.TestCase):
         self.assertEqual(
             names,
             {
-                "architect",
-                "tech-lead",
-                "developer",
-                "qa",
-                "orchestrator",
-                "researcher",
-                "code-review",
-                "technical-documentation",
+                "d2269-architect",
+                "d2269-tech-lead",
+                "d2269-developer",
+                "d2269-qa",
+                "d2269-orchestrator",
+                "d2269-researcher",
+                "d2269-code-review",
+                "d2269-technical-documentation",
             },
         )
 
+    def test_namespaced_skills_have_explicit_codex_invocations(self) -> None:
+        for skill_dir in vs.skill_directories(REPO_ROOT / "skills"):
+            metadata = vs.parse_simple_yaml(
+                (skill_dir / "agents" / "openai.yaml").read_text(encoding="utf-8")
+            )
+            self.assertIn(f"${skill_dir.name}", metadata["interface"]["default_prompt"])
+
 
 class FailureTests(unittest.TestCase):
+    def test_codex_default_prompt_rejects_skill_name_as_prefix(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            skill_dir = root / "skills" / "d2269-qa"
+            agents_dir = skill_dir / "agents"
+            agents_dir.mkdir(parents=True)
+            (agents_dir / "openai.yaml").write_text(
+                "interface:\n"
+                '  display_name: "D2269 QA"\n'
+                '  short_description: "Independent acceptance verification for one ticket"\n'
+                '  default_prompt: "Use $d2269-qa-unrelated for this ticket."\n',
+                encoding="utf-8",
+            )
+
+            errors = vs.validate_openai_yaml(skill_dir, root, "d2269-qa")
+
+            self.assertTrue(
+                any("must mention $d2269-qa explicitly" in item for item in errors)
+            )
+
+    def test_namespaced_skill_requires_codex_ui_metadata(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / "LICENSE").write_text("MIT\n", encoding="utf-8")
+            skill_dir = root / "skills" / "d2269-missing-metadata"
+            skill_dir.mkdir(parents=True)
+            (skill_dir / "SKILL.md").write_text(
+                "---\n"
+                "name: d2269-missing-metadata\n"
+                "description: A description that is long enough.\n"
+                "---\n\n"
+                "# Role\n",
+                encoding="utf-8",
+            )
+            errors = vs.validate_skill_dir(skill_dir, root)
+            self.assertTrue(any("missing Codex UI metadata" in item for item in errors))
+
     def test_duplicate_declared_names(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)

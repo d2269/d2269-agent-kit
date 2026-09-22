@@ -46,7 +46,7 @@ inspected code and tests, ticket comments, and sources authoritatively linked by
 the ticket provide context but do not independently add scope. Plans, architecture
 records, review messages, and prior chat must not become parallel work orders.
 
-Tech Lead or a future deterministic controller owns confirmation that the
+Tech Lead or the deterministic controller owns confirmation that the
 published ticket mapping is current. Developer does not fetch or reconstruct the
 parent plan solely to prove currency; it stops only when the ticket or supplied
 evidence exposes a stale, superseded, or out-of-sync contract.

@@ -13,7 +13,7 @@ the applicable cycle below without weakening its role gates.
 
 Semantic states such as READY, COMPLETE, and PASS are not tracker workflow
 columns. Roles produce verdicts, reports, comments, and requested actions. A
-future deterministic Lifecycle Controller or a human workflow owner performs
+deterministic Lifecycle Controller or a human workflow owner performs
 authorized tracker transitions.
 
 ## Cycle 1 — Prepare and publish implementation tickets
@@ -191,9 +191,9 @@ flowchart TD
 10. Every BLOCKER_REVIEW ends in HUMAN_REVIEW_REQUIRED. The ticket remains paused
     until the human decision is recorded.
 
-## Deliberately separate future cycle
+## Deliberately separate scope-completion cycle
 
 Scope-level Tech Lead COMPLETENESS_REVIEW and Architect CONFORMANCE_REVIEW are not
-embedded in either diagram. They should be documented as a third, independent
-scope-completion cycle after the preparation and single-ticket cycles are
-approved.
+embedded in either diagram. The `planned` and `consequential` controller profiles
+execute them as a third, independent scope-completion cycle after preparation
+and single-ticket delivery.
