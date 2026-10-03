@@ -49,3 +49,13 @@ The adapter follows the official automation contract: parse returned JSON IDs,
 start the agent in an existing shell pane, use a bounded `agent prompt --wait`,
 and treat `blocked`, `unknown`, timeout, or stalled submission as safe-stop
 conditions. It never treats Herdr `idle` or `done` as the role verdict.
+
+The optional manager-routing policy may select Herdr as an executor. It is
+independent of the Lifecycle Controller's runner configuration and lifecycle
+state. Initialize and validate the consumer project's policy with the
+[manager-routing tools](../../docs/herdr-manager.md).
+
+For controller-managed runs, configure the controller's own Herdr runner as
+documented in [Lifecycle Controller](../../docs/controller.md). Install the
+upstream Herdr control skill independently. D2269 does not vendor that skill or
+add an MCP/socket wrapper.

@@ -46,6 +46,50 @@ Cursor Cloud Agents, remote SSH workers, and similar hosts do **not** receive yo
 
 For project installation, `--project-root` must name an existing directory. The installer refuses missing paths instead of creating a new project tree after a typo.
 
+## Optional manager-routing policy
+
+The optional project-local manager policy maps each canonical D2269 skill to a
+project-selected primary executor and explicitly allowlisted alternatives. A
+consuming project may use native subagents, Herdr workers, or both. The policy
+has no preselected provider or model, contains no credentials, and the template
+defaults to asking a human when no configured executor is available.
+
+To preview and initialize a project policy:
+
+```bash
+python3 scripts/init_manager_policy.py --project-root /path/to/repo --dry-run
+python3 scripts/init_manager_policy.py --project-root /path/to/repo
+```
+
+Use `--add-agents-marker` to create `AGENTS.md` with a bounded pointer when that
+file does not exist. Existing `AGENTS.md` files are never rewritten: an exact
+existing marker is left unchanged, while a missing or conflicting marker causes
+a safe refusal and must be resolved manually. Policy and marker files are
+created exclusively through descriptor-relative, no-follow filesystem
+operations; initialization fails closed when the platform cannot provide the
+required operations. It opens the absolute project path from the filesystem root
+one component at a time, rejects symlink components, and checks that opened
+components still match their directory entries after traversal. It detects
+symlink or directory-entry swaps during that traversal. After a directory
+descriptor has been pinned, a same-user process can still rename that directory
+elsewhere; Python's portable standard library cannot prevent every such rename.
+Avoid running initialization while another process is moving project
+directories. If a file creation fails after its pathname is published, an
+incomplete destination may remain. The initializer never unlinks or rolls back
+a published pathname. If policy creation succeeds but later `AGENTS.md`
+creation fails, the policy remains. The error identifies the destination and
+asks for manual inspection; inspect and remove any incomplete file before
+retrying. Existing files are never removed. Fill in the executor choices and
+validate the result:
+
+```bash
+python3 scripts/validate_manager_policy.py /path/to/repo/.d2269/manager-policy.json
+```
+
+Projects can use the eight role skills without this optional layer. See
+[Manager routing](herdr-manager.md) for the contract, safe-stop rules, and
+current limitations.
+
 ## Verified discovery paths
 
 Paths below were checked against official documentation at the time of writing. If a vendor changes discovery, update the adapter and this page together. Do not invent additional roots.

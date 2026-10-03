@@ -81,6 +81,11 @@ The JSON configuration has schema version `1` and contains no secrets:
   `authorized_minimal_waivers` entries bind the only policy/owner/source tuples
   that an automatically published minimal child contract may use.
 
+This runner configuration belongs only to the Lifecycle Controller. The
+controller does not consume the optional portable manager policy for projects
+that delegate through a native manager. Initialize that separate policy with
+the tools described in [Manager routing](herdr-manager.md).
+
 Each Linear issue used as a work contract includes a JSON object in its
 description. Comments are deliberately not parsed as policy:
 

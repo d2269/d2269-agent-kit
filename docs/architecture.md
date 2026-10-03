@@ -13,12 +13,13 @@ invocation are `d2269-architect` and `$d2269-architect`. Adapters install, copy,
 or link those directories into agent-specific locations. Do not maintain edited
 forks for Cursor, Codex, Claude, or Herdr.
 
-## Two kinds of logic
+## Reasoning, lifecycle control, and routing
 
 | Kind | Belongs in | Examples |
 | --- | --- | --- |
 | Agent reasoning | Skills | Architecture, planning, implementation judgment, QA reasoning, research, review, documentation, escalation analysis, structured handoffs |
-| Deterministic automation | Controller software | Rework counters, locks, authorized status mutation, worktrees, process supervision, bounded timeouts, persistent workflow state, and mutation receipts |
+| Deterministic lifecycle automation | Optional Controller software | Rework counters, locks, authorized status mutation, worktrees, process supervision, bounded timeouts, persistent workflow state, and mutation receipts |
+| Optional manager routing | Consumer-project policy | Per-skill primary executor, allowlisted alternatives, and manager fallback behavior |
 
 Never encode a state machine in natural language when it can be implemented as
 code. Version 0.1 now includes a local, human-started Lifecycle Controller in
@@ -28,8 +29,9 @@ router.
 
 ## Role skills vs workflow
 
-The eight initial skills define **role boundaries and output contracts** for the
-lifecycle executed by the controller:
+The eight canonical skills define **role boundaries and output contracts** for
+work performed manually, by native subagents, by Herdr workers, or through the
+optional Lifecycle Controller:
 
 Researcher -> Architect `DESIGN` -> Tech Lead -> Developer -> Code Review -> QA
 -> policy-defined next gate or `Done`. At scope completion, policy may require
@@ -100,8 +102,39 @@ change role authority or implement control flow. The human or authoritative
 workflow policy selects a profile; deterministic software eventually performs
 the selected routing.
 
-The controller consumes the same handoff documents and a small versioned JSON
-result envelope. It does not rename skills or split `skills/` by platform.
+The optional controller consumes the same handoff documents and a small
+versioned JSON result envelope. It does not rename skills or split `skills/` by
+platform. Controller configuration and state are specific to controller-run
+lifecycles.
+
+### Optional manager-routing policy
+
+The accepted manager-routing layer is a small project-local policy template and
+opt-in initializer intended for consumer repositories. It selects, per
+canonical D2269 skill, a primary executor and a bounded allowlist of
+alternatives. A project may use its manager runtime's native subagents, Herdr
+workers, or a mix. The policy has no concrete model defaults; an unconfigured
+route or unavailable primary follows `ask-human`. A manager may switch to a
+listed alternative only after the human explicitly chooses it.
+
+This policy is independent of both Herdr and the Lifecycle Controller. It
+does not own role procedures, lifecycle transitions, tracker authority, or
+session storage. Role semantics remain in the eight `skills/*/SKILL.md`
+packages. The manager invokes the selected skill and provides a bounded handoff
+containing the task contract, exact revision, relevant artifacts, acceptance
+criteria, and expected output.
+
+Session continuity, independent review contexts, exact-revision binding, and
+rework routing remain governed by the canonical
+[lifecycle role contracts](lifecycle-role-contracts.md) and
+[handoff contract](handoff-contract.md). The manager surfaces approval prompts,
+uncertain delivery, unavailable workers, and other blocking conditions to a
+human. It never answers approval prompts automatically or silently changes
+executor.
+
+The template, validator, and initializer are available in `manager-policy/` and
+`scripts/`. They validate and install configuration; they do not launch workers
+or enforce manager behavior. See [Manager routing](herdr-manager.md).
 
 ### Lifecycle Controller boundary
 
@@ -121,39 +154,50 @@ transition until it records the human decision. The human may resume the ticket,
 require revised decomposition or additional project steps, request Architect or
 other investigation, or choose another action.
 
-Herdr is the implemented role-session runner. It launches isolated sessions but
-does not own lifecycle policy, technical classification, or human decision
-gates. The controller uses the Herdr CLI only; it does not duplicate that
-surface with a socket client.
+Herdr is an optional role-session runner. The Lifecycle Controller currently
+uses it to launch isolated sessions, but Herdr itself
+does not own lifecycle policy, technical classification, worker-role semantics,
+or human decision gates. The controller uses the Herdr CLI only; it does not
+duplicate that surface with a socket client. A consumer project's manager may
+also use Herdr as one configured executor under the independent manager policy.
+This is execution coordination, not a ninth role or a general workflow engine.
 
 ### Implemented controller components
 
 | Component | Responsibility |
 | --- | --- |
 | Shared engine | Four profiles, per-ticket routing, rework policy, human gates |
-| SQLite state store | Project-scoped runs, invocations, artifacts, receipts, decisions, errors, and locks |
+| SQLite state store | Controller-specific project-scoped runs, invocations, artifacts, receipts, decisions, errors, and locks |
 | Herdr runner | Fresh supported-agent sessions and bounded lifecycle waits |
 | Git worktree manager | Writable Developer context and fresh exact-revision review contexts |
 | `TrackerPort` | Only the ticket, comment, transition, receipt, and plan-sync operations used by the engine |
 | Linear adapter | GraphQL translation, preconditions, idempotency markers, and receipt verification |
 
 Control and data flow, recovery behavior, configuration, and current maturity are
-documented in [Lifecycle Controller](controller.md). The accepted runtime
-decision is [AD-001](decisions/AD-001-lifecycle-controller-runtime.md).
+documented in [Lifecycle Controller](controller.md). Its project-local runner
+configuration and SQLite lifecycle state are not the portable manager-routing
+policy. The controller runtime decision is
+[AD-001](decisions/AD-001-lifecycle-controller-runtime.md);
+the optional manager-routing decision is
+[AD-002](decisions/AD-002-portable-manager-routing-policy.md).
 
 ## Repository layout
 
 ```text
 skills/          Canonical, self-contained Agent Skills with bundled assets
 docs/            Human and agent documentation for this toolkit
-controller/      Deterministic workflow engine and external adapters
+controller/      Optional deterministic workflow engine and external adapters
 scripts/         Deterministic tools (validate, install, demonstrate)
 adapters/        Platform notes and installer entry points
 ```
 
 Optional skill subdirectories (`references/`, `scripts/`, `assets/`) are created only when they carry real content.
 
-There is deliberately no top-level `templates/` directory. Output skeletons live in the owning skill's `assets/` directory. Keeping package dependencies inside the skill root makes copy and symlink installations portable; repository-level docs are not runtime dependencies.
+Role output skeletons live in the owning skill's `assets/` directory. The
+top-level `manager-policy/` directory contains optional consumer-project
+configuration, not role output assets. Keeping skill package dependencies
+inside the skill root makes copy and symlink installations portable;
+repository-level docs are not runtime dependencies.
 
 ## Extensibility
 
@@ -183,7 +227,10 @@ Adapters are thin. They map this repository onto verified discovery paths. They 
 
 Additional tracker providers, automatic ticket discovery, webhook servers,
 continuous polling, distributed queues, parallel tickets within one project,
-Herdr daemons or plugins, manager agents, automatic model routing, quota
-management, merge automation, CI deployment, and model benchmarks are out of
-scope. Live production readiness is not claimed until the documented controlled
-Herdr/Linear integration pilot succeeds.
+Herdr daemons or plugins, automatic provider/model routing, automatic quota
+reset detection, merge automation, CI deployment, and model benchmarks are out
+of scope. A lightweight, human-directed manager policy is accepted as an
+optional project-local routing aid; it does not launch agents or enforce a
+workflow. The existing controller remains a separate product layer and does
+not consume this policy. Live production readiness is not claimed until the
+documented controlled Herdr/Linear integration pilot succeeds.

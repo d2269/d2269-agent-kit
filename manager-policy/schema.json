@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "D2269 Manager Policy",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "routes"
+  ],
+  "properties": {
+    "schema_version": { "const": "1" },
+    "routes": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "d2269-architect": { "$ref": "#/$defs/route" },
+        "d2269-tech-lead": { "$ref": "#/$defs/route" },
+        "d2269-developer": { "$ref": "#/$defs/route" },
+        "d2269-code-review": { "$ref": "#/$defs/route" },
+        "d2269-qa": { "$ref": "#/$defs/route" },
+        "d2269-researcher": { "$ref": "#/$defs/route" },
+        "d2269-technical-documentation": { "$ref": "#/$defs/route" },
+        "d2269-orchestrator": { "$ref": "#/$defs/route" }
+      }
+    }
+  },
+  "$defs": {
+    "route": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["primary", "alternatives"],
+      "properties": {
+        "primary": { "$ref": "#/$defs/executor" },
+        "alternatives": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/executor" }
+        }
+      }
+    },
+    "executor": {
+      "oneOf": [
+        { "$ref": "#/$defs/nativeExecutor" },
+        { "$ref": "#/$defs/herdrExecutor" }
+      ]
+    },
+    "nativeExecutor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["executor", "model"],
+      "properties": {
+        "executor": { "const": "native" },
+        "model": { "type": "string", "minLength": 1, "pattern": "\\S" }
+      }
+    },
+    "herdrExecutor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["executor", "kind", "model", "args"],
+      "properties": {
+        "executor": { "const": "herdr" },
+        "kind": { "type": "string", "minLength": 1, "pattern": "\\S" },
+        "model": { "type": "string", "minLength": 1, "pattern": "\\S" },
+        "args": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  }
+}

@@ -6,11 +6,15 @@ Deterministic tools for this kit. No third-party Python packages.
 | --- | --- |
 | `validate_skills.py` | Validate strict string-only YAML frontmatter, names, Codex UI metadata, package-contained links, size, and English public content |
 | `install_skills.py` | Copy or symlink canonical skills into a verified adapter path |
+| `init_manager_policy.py` | Create an optional project-local manager-policy template with descriptor-relative, exclusive, no-follow writes; optionally create `AGENTS.md` only when absent; leave published files for manual inspection after write failure |
+| `validate_manager_policy.py` | Validate a project-local manager-policy JSON file, reject unknown fields and common credential forms, and keep diagnostics free of user-controlled keys and values |
 | `demo_controller.py` | Run credential-free lifecycle demonstrations and assert durable state and receipts |
 
 ```bash
 python3 scripts/validate_skills.py
 python3 scripts/install_skills.py --help
+python3 scripts/init_manager_policy.py --project-root /path/to/project --dry-run
+python3 scripts/validate_manager_policy.py /path/to/project/.d2269/manager-policy.json
 python3 -m unittest discover -s scripts/tests -v
 python3 -m unittest discover -s controller/tests -t . -v
 python3 scripts/demo_controller.py

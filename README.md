@@ -29,7 +29,7 @@ An **agent engineering toolkit**:
 - Not a multi-agent operating system
 - Not a universal Kanban framework
 - Not a Herdr daemon or agent launcher
-- Not a model router or quota manager
+- Not an automatic model router or quota manager
 - Not an automatic ticket-discovery or merge service
 
 The local Lifecycle Controller implements the documented delivery profiles. It
@@ -156,9 +156,11 @@ records the next action. That decision may require revised decomposition,
 additional project steps, or another role rather than another implementation
 pass.
 
-Herdr and Conductor may later serve as interchangeable role-session runners.
-They are execution mechanisms, not owners of lifecycle policy or technical
-decisions.
+Herdr is an optional execution runtime used by the Lifecycle Controller. A
+project may also opt into the manager-routing policy layer to map each D2269
+skill to native subagents, Herdr workers, or both. This layer does not change
+role semantics or require the controller. See
+[Manager routing](docs/herdr-manager.md) for setup and limitations.
 
 During implementation, evidence of a design-level blocker goes to Tech Lead
 `BLOCKER_REVIEW`. Tech Lead may recommend Architect `ESCALATION_REVIEW`, but the
@@ -195,6 +197,8 @@ Fresh-session handoffs: [docs/handoff-contract.md](docs/handoff-contract.md).
 Proportional routes: [docs/execution-profiles.md](docs/execution-profiles.md).
 Layout and non-goals: [docs/architecture.md](docs/architecture.md).
 
+Optional manager delegation: [docs/herdr-manager.md](docs/herdr-manager.md).
+
 ### Role responsibilities
 
 | Role | Skill invocation | Owns |
@@ -223,9 +227,10 @@ replace QA. Code Review does not auto-apply fixes.
 
 ```text
 skills/          Canonical, self-contained Agent Skills and bundled output assets
-controller/      Shared lifecycle engine, SQLite state, Git, Herdr, and Linear adapters
+controller/      Optional lifecycle engine, SQLite state, Git, Herdr, and Linear adapters
+manager-policy/  Optional consumer-project policy template and JSON schema
 docs/            Architecture, installation, authoring, role model, handoff contract
-scripts/         Validator, installer, and controller demonstrations
+scripts/         Skill/policy validators, initializers, installer, and demonstrations
 adapters/        Platform notes and installer entry points
 ```
 
@@ -296,13 +301,20 @@ role sessions, Git worktrees for exact-revision isolation, SQLite for durable
 project-scoped state, and a production Linear GraphQL adapter for authorized
 comments, child-ticket synchronization, and status transitions.
 
+The controller is optional and keeps its own project-local Herdr runner
+configuration (`agent_kind` and optional `agent_args`). It does not consume the
+portable policy described in [Manager routing](docs/herdr-manager.md).
+
 See [Lifecycle Controller](docs/controller.md) for installation, configuration,
 CLI usage, security, recovery, troubleshooting, tests, and current limitations.
 
 ## Current maturity
 
-**Version 0.1.** Role skills, handoff templates, validator, installer, and the
-controller are implemented. Deterministic fake-boundary tests and credential-free
+**Version 0.1.** Role skills, handoff templates, validators, installers, and the
+controller are implemented. The optional manager-routing policy template,
+validator, and initializer are available for consumer projects; runtime
+delegation remains manager-directed and is not enforced by the kit.
+Deterministic fake-boundary tests and credential-free
 state/receipt demonstrations pass. Herdr 0.9.0 syntax and current official Linear
 GraphQL behavior were verified, but a controlled live end-to-end pilot is still
 required before production adoption. Automatic model routing remains deferred by
